@@ -7,8 +7,8 @@ import { Chevron } from '../../components/icons';
 
 import './Home.css';
 
-import Dashboard from './Dashboard';
-import Social from './Social';
+import Dashboard from './components/Dashboard';
+import Social from './components/Social';
 
 class Home extends Component {
   state = {
@@ -24,10 +24,10 @@ class Home extends Component {
       <div id="Home">
         <div className={classnames('Home-header', { 'body-hidden': bodyHidden })}>
           <Clock/>
+          <FlatButton onClick={this.toggleBody}>
+            <Chevron up={bodyHidden} down={!bodyHidden}/>
+          </FlatButton>
         </div>
-        <FlatButton onClick={this.toggleBody}>
-          <Chevron up={bodyHidden} down={!bodyHidden}/>
-        </FlatButton>
         <div className={classnames('Home-body', { 'body-hidden': bodyHidden })}>
           <Dashboard/>
           <Social/>

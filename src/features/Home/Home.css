@@ -1,15 +1,13 @@
 #Home {
   height: 100%;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   overflow-y: hidden;
 }
 
 .Home-header {
   display: flex;
-  height: 140px;
+  flex-direction: column;
+  height: 150px;
   align-items: center;
   transition-duration: .5s;
 }
@@ -22,9 +20,7 @@
   background: #e0e0e0;
   height: 100%;
   display: flex;
-  transition-duration: .5s;
 }
 
 .Home-body.body-hidden {
-  height: 0;
 }

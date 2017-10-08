@@ -13,9 +13,9 @@ const App = () => (
   <div className="App">
     <header className="App-header">Shut Up & Write 24/7</header>
     <Switch>
-      <Route exact path="/" component={Home}/>
       <Route exact path="/login" component={LogIn} />
       <Route exact path="/404" component={NotFound} />
+      <Route path="/" component={Home}/>
       <Route404/>
     </Switch>
   </div>

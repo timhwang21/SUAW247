@@ -60,7 +60,7 @@ class Clock extends Component {
       ? (totalSeconds / BREAK_SECONDS)
       : ((totalSeconds - BREAK_SECONDS) / WORK_SECONDS);
 
-    return 100 - Math.round(percentLeft * 100);
+    return 100 - Number((percentLeft * 100).toFixed(2));
   }
 
   render() {

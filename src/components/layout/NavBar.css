@@ -1,0 +1,12 @@
+.NavBar {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+}
+
+.NavBar > * {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

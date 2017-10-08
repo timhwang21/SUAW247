@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Panel } from '../../components/layout';
+import { Panel } from '../../../components/layout';
 
 import './Social.css';
 
