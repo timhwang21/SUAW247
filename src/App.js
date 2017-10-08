@@ -1,55 +1,24 @@
-import React, { Component } from 'react';
-import { userShape } from './propTypes';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom'
 
-import { getUser } from './modules/user';
+import Home from './features/Home';
+import NotFound from './features/NotFound';
 
-import { LogIn, LogOut } from './components/auth';
+import { Route404 } from './components/routes';
+import { LogIn } from './components/auth';
 
 import './App.css';
 
-const mapStateToProps = state => ({
-  user: getUser(state)
-});
+const App = () => (
+  <div className="App">
+    <header className="App-header">Shut Up & Write 24/7</header>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/login" component={LogIn} />
+      <Route exact path="/404" component={NotFound} />
+      <Route404/>
+    </Switch>
+  </div>
+);
 
-class App extends Component {
-  static propTypes = {
-    user: userShape,
-  };
-
-  renderUser() {
-    const { user } = this.props;
-
-    if (!user) {
-      return null;
-    }
-
-    return (
-      <div>
-        <div>{user.displayName}</div>
-        <div>{user.email}</div>
-        <div>{user.photoURL}</div>
-      </div>
-    );
-  }
-
-  render() {
-    const { user } = this.props;
-
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <LogIn hidden={!!user}/>
-        <LogOut hidden={!user}/>
-        {this.renderUser()}
-      </div>
-    );
-  }
-}
-
-export default compose(
-  connect(mapStateToProps),
-)(App);
+export default App;
