@@ -1,21 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { userShape } from './propTypes';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { getUser } from './modules/user';
+
+import { LogIn, LogOut } from './components/auth';
+
 import './App.css';
 
+const mapStateToProps = state => ({
+  user: getUser(state)
+});
+
 class App extends Component {
+  static propTypes = {
+    user: userShape,
+  };
+
+  renderUser() {
+    const { user } = this.props;
+
+    if (!user) {
+      return null;
+    }
+
+    return (
+      <div>
+        <div>{user.displayName}</div>
+        <div>{user.email}</div>
+        <div>{user.photoURL}</div>
+      </div>
+    );
+  }
+
   render() {
+    const { user } = this.props;
+
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <LogIn hidden={!!user}/>
+        <LogOut hidden={!user}/>
+        {this.renderUser()}
       </div>
     );
   }
 }
 
-export default App;
+export default compose(
+  connect(mapStateToProps),
+)(App);
