@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: "Avenir Next", Futura, Helvetica, Arial, sans-serif;
 }
+
+*:focus {
+  outline: 0;
+  outline: none;
+}
