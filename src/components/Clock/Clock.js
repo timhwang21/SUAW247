@@ -5,12 +5,19 @@ import { padStart } from 'lodash';
 
 import { getTime, getIsBreak, setTime } from '../../modules/clock';
 import { timeShape } from '../../propTypes';
+import ProgressBar from '../ProgressBar';
 
 import './Clock.css';
 
 function formatTime({ minutes, seconds }) {
   return `${padStart(minutes, 2, '0')}:${padStart(seconds, 2, '0')}`;
 }
+
+const MINUTE = 60;
+const BREAK = 5;
+const WORK = 25;
+const BREAK_SECONDS = MINUTE * BREAK;
+const WORK_SECONDS = MINUTE * WORK;
 
 const mapStateToProps = state => ({
   time: getTime(state),
@@ -46,10 +53,24 @@ class Clock extends Component {
       : { time: formatTime({ minutes: minutes - 5, seconds }), message: 'until break' };
   }
 
+  get percentTimeLeft() {
+    const { isBreak, time: { totalSeconds } } = this.props;
+
+    const percentLeft = isBreak
+      ? (totalSeconds / BREAK_SECONDS)
+      : ((totalSeconds - BREAK_SECONDS) / WORK_SECONDS);
+
+    return 100 - Math.round(percentLeft * 100);
+  }
+
   render() {
+    const { isBreak } = this.props;
+
     const { time, message } = this.timeMessage;
+
     return (
       <div id="clock">
+        <ProgressBar percent={this.percentTimeLeft} red={!isBreak}/>
         <div className="clock-time">
           {time}
         </div>

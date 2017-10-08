@@ -11,15 +11,15 @@ function calcTime() {
   const nextHalfHour = addMinutes(nextHour, -30);
   const isFirstHalfHour = isBefore(now, nextHalfHour);
 
-  const secondsLeft = differenceInSeconds(
+  const totalSeconds = differenceInSeconds(
     isFirstHalfHour ? nextHalfHour : nextHour,
     now
   );
 
-  const minutes = Math.floor(secondsLeft / 60);
-  const seconds = secondsLeft % 60;
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
 
-  return { minutes, seconds };
+  return { totalSeconds, minutes, seconds };
 }
 
 export const SET_TIME = 'clock/SET_TIME';
