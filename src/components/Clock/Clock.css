@@ -1,0 +1,16 @@
+#clock {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: 300;
+  margin: 20px;
+}
+
+.clock-time {
+  width: 240px;
+  display: flex;
+  align-items: flex-start;
+  font-weight: 500;
+}
