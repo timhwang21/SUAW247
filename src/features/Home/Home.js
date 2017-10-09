@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 
 import Clock from '../../components/Clock';
-import { FlatButton } from '../../components/buttons';
+import { Button } from '../../components/buttons';
 import { Chevron } from '../../components/icons';
 
 import './Home.css';
@@ -24,9 +24,9 @@ class Home extends Component {
       <div id="Home">
         <div className={classnames('Home-header', { 'body-hidden': bodyHidden })}>
           <Clock/>
-          <FlatButton onClick={this.toggleBody}>
+          <Button onClick={this.toggleBody} fullWidth>
             <Chevron up={bodyHidden} down={!bodyHidden}/>
-          </FlatButton>
+          </Button>
         </div>
         <div className={classnames('Home-body', { 'body-hidden': bodyHidden })}>
           <Dashboard/>

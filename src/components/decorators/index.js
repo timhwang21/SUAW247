@@ -1,0 +1,1 @@
+export { default as hidable } from './hidable';

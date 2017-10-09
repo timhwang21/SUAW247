@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink as RouterNavLink } from 'react-router-dom'
 
+import { hidable } from '../decorators';
+
 import './NavLink.css';
 
 const NavLink = props => (
@@ -12,4 +14,6 @@ const NavLink = props => (
   />
 );
 
-export default NavLink;
+NavLink.displayName = 'NavLink';
+
+export default hidable(NavLink);

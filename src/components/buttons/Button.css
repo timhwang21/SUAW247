@@ -1,0 +1,30 @@
+.Button {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 0;
+  border: 0;
+}
+
+.Button:hover {
+  background: #e0e0e0;
+}
+
+.Button:active {
+  background: #d0d0d0;
+}
+
+.Button.dark {
+  background: #666;
+  color: #eee;
+}
+
+.Button.dark:hover {
+  background: #707070;
+}
+
+.Button.dark:active {
+  background: #808080;
+}

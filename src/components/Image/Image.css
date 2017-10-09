@@ -1,0 +1,8 @@
+.Image.small {
+  height: 32px;
+  width: 32px;
+}
+
+.Image.circle {
+  border-radius: 50px;
+}

@@ -8,3 +8,7 @@ body {
   outline: 0;
   outline: none;
 }
+
+.full-width {
+  width: 100% !important;
+}

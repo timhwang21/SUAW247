@@ -1,4 +1,4 @@
-import * as FirebaseActions from '../firebase/actions';
+import { FirebaseActions } from '../firebase';
 
 export const LOGIN = 'user/LOGIN';
 export const login = user => ({

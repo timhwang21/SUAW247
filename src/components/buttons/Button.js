@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import { node, string, func } from 'prop-types';
+import { node, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 
-import './FlatButton.css';
+import './Button.css';
 
-class FlatButton extends Component {
+class Button extends Component {
   static propTypes = {
     children: node.isRequired,
     className: string,
+    dark: bool,
+    fullWidth: bool,
     id: string,
     onClick: func.isRequired,
   };
 
   get className() {
-    const { className } = this.props;
+    const { className, fullWidth, dark } = this.props;
 
-    return classnames('FlatButton', className);
+    return classnames({
+      Button: true,
+      [className]: className,
+      'full-width': fullWidth,
+      dark,
+    });
   }
 
   render() {
@@ -29,4 +36,4 @@ class FlatButton extends Component {
   }
 }
 
-export default FlatButton;
+export default Button;

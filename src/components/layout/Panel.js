@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { node, string } from 'prop-types';
 import classnames from 'classnames';
 
-import hidable from '../decorators/hidable';
+import { hidable } from '../decorators';
 
 import './Panel.css';
 
