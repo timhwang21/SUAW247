@@ -25,7 +25,7 @@ class Header extends Component {
 
     if (user) {
       return [
-        <Link key="user" to="">
+        <Link className="Header-link" key="user" to="">
           <Image src={user.photoURL || userPlaceholder} title={user.displayName} small circle />
         </Link>,
         <LogOut key="logout"/>
@@ -40,7 +40,9 @@ class Header extends Component {
       <div id="Header">
         <div className="Header-left"/>
         <div className="Header-center">
-          Shut Up & Write 24/7
+          <Link to="/" className="Header-link" >
+            Shut Up & Write 24/7
+          </Link>
         </div>
         <div className="Header-right">
           {this.renderHeaderRight()}
