@@ -18,6 +18,7 @@
 
 #clock .clock-message {
   transition-duration: .5s;
+  white-space: nowrap;
 }
 
 #clock.large .clock-time {
