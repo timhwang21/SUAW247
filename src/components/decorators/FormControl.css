@@ -1,0 +1,24 @@
+.form-control-wrapper {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-control-wrapper.has-error {
+  border: 2px solid red;
+  border-radius: 5px 5px 0 0;
+}
+
+.form-control-wrapper.has-error + .form-error {
+  border: 2px solid red;
+}
+
+.form-error {
+  color: white;
+  background: red;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 0 0 5px 5px;
+}
