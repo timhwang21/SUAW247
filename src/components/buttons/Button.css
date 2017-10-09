@@ -3,17 +3,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f0f0f0;
+  background: #e6e6e6;
   border-radius: 0;
   border: 0;
 }
 
 .Button:hover {
-  background: #e6e6e6;
+  background: #e0e0e0;
 }
 
 .Button:active {
-  background: #d6d6d6;
+  background: #d0d0d0;
 }
 
 .Button.dark {

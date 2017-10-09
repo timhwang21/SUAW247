@@ -1,21 +1,19 @@
 .NavLink {
   text-decoration: none;
-  background: #f0f0f0;
+  background: #f6f6f6;
   border-bottom: 2px solid transparent;
   color: black;
 }
 
 .NavLink:hover {
-  background: #e6e6e6;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .NavLink:active {
-  background: #d6d6d6;
-  color: black;
+  border-bottom: 2px solid #d0d0d0;
 }
 
 .NavLink.NavLink-active {
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid #66c0f6;
   font-weight: 600;
-  /*text-decoration: underline;*/
 }

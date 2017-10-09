@@ -21,9 +21,9 @@
 }
 
 #clock.large .clock-time {
-  width: 440px;
+  width: 360px;
 }
 
 #clock.large .clock-message {
-  font-size: 144px;
+  font-size: 120px;
 }
