@@ -1,10 +1,17 @@
 # Placeholder
 
+[**Live Demo**](https://shutupandwrite247.firebaseapp.com/)
+
 ## TODO
 
-* Add routes
-    * Header, Footer, Nav always visible
-    * Home, etc. route-dependent
+* [x] Add routes
+    * [x] Header, Footer, Nav always visible
+    * [x] Home, etc. route-dependent
+* [ ] Now
+    * [ ] Form
+* [ ] Today
+* [ ] Week
+    * [ ] Visualizations
 
 Will look like:
 
