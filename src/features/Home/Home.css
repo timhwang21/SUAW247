@@ -18,7 +18,7 @@
 
 .Home-body {
   background: #e0e0e0;
-  height: 100%;
+  height: calc(100% - 150px);
   display: flex;
 }
 

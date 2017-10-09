@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { node, string } from 'prop-types';
+import { node, string, bool } from 'prop-types';
 import classnames from 'classnames';
 
 import { hidable } from '../decorators';
@@ -11,12 +11,17 @@ class Panel extends Component {
     children: node.isRequired,
     className: string,
     id: string,
+    withNav: bool,
   };
 
   get className() {
-    const { className } = this.props;
+    const { className, withNav } = this.props;
 
-    return classnames('Panel', className);
+    return classnames({
+      Panel: true,
+      [className]: className,
+      'with-nav': withNav,
+    });
   }
 
   render() {
