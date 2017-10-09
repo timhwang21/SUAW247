@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { userShape } from '../../propTypes';
 import { getUser } from '../../modules/user';
 
-import userPlaceholder from '../../images/user_placeholder.png';
+import userPlaceholder from '../../static/images/user_placeholder.png';
 import Image from '../../components/Image';
 import { Link } from '../../components/links';
 import { LogIn, LogOut } from '../../components/auth';
