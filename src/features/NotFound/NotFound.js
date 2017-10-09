@@ -1,11 +1,13 @@
 import React from 'react'
 
+import { Link } from '../../components/links'
+
 import './NotFound.css'
 
 const NotFound = () => (
   <div id="not-found">
-    <div>404 Not Found</div>
-    <a href="/">Home</a>
+    <div id="not-found-title">Not Found</div>
+    <Link to="/">Back</Link>
   </div>
 );
 

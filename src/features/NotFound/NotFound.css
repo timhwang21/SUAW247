@@ -5,3 +5,8 @@
   align-items: center;
   justify-content: center;
 }
+
+#not-found-title {
+  font-size: 32px;
+  margin: 10px;
+}

@@ -13,11 +13,11 @@ class Dashboard extends Component {
     return (
       <Panel id="Dashboard">
         <NavBar id="Dashboard-NavBar">
-          <NavLink to="/">Now</NavLink>
+          <NavLink to="/now">Now</NavLink>
           <NavLink to="/today">Today</NavLink>
           <NavLink to="/week">This Week</NavLink>
         </NavBar>
-        <Route exact path="/" render={() => <div>Now</div>}/>
+        <Route exact path="/(now)?" render={() => <div>Now</div>}/>
         <Route path="/today" render={() => <div>Today</div>}/>
         <Route path="/week" render={() => <div>Week</div>}/>
       </Panel>

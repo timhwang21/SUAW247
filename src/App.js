@@ -39,9 +39,9 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Switch>
+          <Route exact path="/:view(now|today|week)?" component={Home}/>
           <Route exact path="/login" component={LogInPage} />
           <Route exact path="/404" component={NotFound} />
-          <Route path="/" component={Home}/>
           <Route404/>
         </Switch>
       </div>
