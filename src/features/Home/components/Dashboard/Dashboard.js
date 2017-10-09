@@ -12,7 +12,7 @@ class Dashboard extends Component {
 
     return (
       <Panel id="Dashboard">
-        <NavBar>
+        <NavBar id="Dashboard-NavBar">
           <NavLink to="/">Now</NavLink>
           <NavLink to="/today">Today</NavLink>
           <NavLink to="/week">This Week</NavLink>

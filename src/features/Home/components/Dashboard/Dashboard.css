@@ -1,3 +1,7 @@
 #Dashboard {
   flex-grow: 3;
 }
+
+#Dashboard-NavBar {
+  background: #f0f0f0;
+}

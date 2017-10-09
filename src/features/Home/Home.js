@@ -23,8 +23,12 @@ class Home extends Component {
     return (
       <div id="Home">
         <div className={classnames('Home-header', { 'body-hidden': bodyHidden })}>
-          <Clock/>
-          <Button onClick={this.toggleBody} fullWidth>
+          <Clock large={bodyHidden}/>
+          <Button
+            className="Home-toggle"
+            onClick={this.toggleBody}
+            fullWidth
+          >
             <Chevron up={bodyHidden} down={!bodyHidden}/>
           </Button>
         </div>

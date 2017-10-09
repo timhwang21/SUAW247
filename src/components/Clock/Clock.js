@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bool, func } from 'prop-types';
+import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { padStart } from 'lodash';
 
@@ -33,6 +34,7 @@ class Clock extends Component {
     time: timeShape.isRequired,
     isBreak: bool.isRequired,
     setTime: func.isRequired,
+    large: bool,
   };
 
   componentDidMount() {
@@ -64,14 +66,14 @@ class Clock extends Component {
   }
 
   render() {
-    const { isBreak } = this.props;
+    const { isBreak, large } = this.props;
 
     const { time, message } = this.timeMessage;
 
     return (
-      <div id="clock">
+      <div id="clock" className={classnames(large && 'large')}>
         <ProgressBar percent={this.percentTimeLeft} red={!isBreak}/>
-        <div className="clock-time">
+        <div className="clock-time clock-message">
           {time}
         </div>
         <div className="clock-message">

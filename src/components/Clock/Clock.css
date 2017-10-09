@@ -9,9 +9,21 @@
   position: relative;
 }
 
-.clock-time {
+#clock .clock-time {
   width: 240px;
+  font-weight: 500;
   display: flex;
   align-items: flex-start;
-  font-weight: 500;
+}
+
+#clock .clock-message {
+  transition-duration: .5s;
+}
+
+#clock.large .clock-time {
+  width: 440px;
+}
+
+#clock.large .clock-message {
+  font-size: 144px;
 }
