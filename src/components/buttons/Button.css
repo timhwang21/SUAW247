@@ -6,6 +6,7 @@
   background: #e6e6e6;
   border-radius: 0;
   border: 0;
+  white-space: nowrap;
 }
 
 .Button:hover {
