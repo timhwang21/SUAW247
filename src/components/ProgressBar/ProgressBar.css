@@ -15,9 +15,5 @@
 }
 
 .ProgressBar-wrapper.red {
-  background: white;
-}
-
-.ProgressBar-wrapper.red .ProgressBar {
   background: #ffc0c0;
 }
