@@ -10,10 +10,11 @@
 }
 
 #clock .clock-time {
-  width: 240px;
+  width: 250px;
   font-weight: 500;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 #clock .clock-text {
@@ -28,7 +29,7 @@
 }
 
 #clock.large .clock-time {
-  width: 360px;
+  width: 400px;
 }
 
 #clock.large .clock-text {
