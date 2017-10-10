@@ -8,10 +8,17 @@
 
 .ProgressBar {
   position: absolute;
-  height: 100%;
   background: white;
   z-index: -1;
   transition-duration: .25s;
+}
+
+.ProgressBar.horizontal {
+  height: 100%;
+}
+
+.ProgressBar.vertical {
+  width: 100%;
 }
 
 .ProgressBar-wrapper.red {

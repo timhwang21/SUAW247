@@ -9,22 +9,28 @@ class ProgressBar extends Component {
     className: string,
     percent: number,
     red: bool,
+    vertical: bool,
   };
 
   get className() {
-    const { className } = this.props;
+    const { className, vertical } = this.props;
 
-    return classnames('ProgressBar', className);
+    return classnames({
+      'ProgressBar': true,
+      [className]: className,
+      horizontal: !vertical,
+      vertical,
+    });
   }
 
   render() {
-    const { percent, red } = this.props;
+    const { percent, red, vertical } = this.props;
 
     return (
       <div className={classnames('ProgressBar-wrapper', red && 'red')}>
         <div
           className={this.className}
-          style={{ width: percent + '%' }}
+          style={{ [vertical ? 'height' : 'width']: percent + '%' }}
         />
       </div>
     );

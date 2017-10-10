@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { bool, func } from 'prop-types';
+import { bool, number, func } from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { padStart } from 'lodash';
+import dimensions from 'react-dimensions';
 
 import { getTime, getIsBreak, setTime } from '../../modules/clock';
 import { timeShape } from '../../propTypes';
@@ -35,6 +37,8 @@ class Clock extends Component {
     isBreak: bool.isRequired,
     setTime: func.isRequired,
     large: bool,
+    containerHeight: number,
+    containerWidth: number,
   };
 
   componentDidMount() {
@@ -65,6 +69,12 @@ class Clock extends Component {
     return 100 - Number((percentLeft * 100).toFixed(2));
   }
 
+  get isVertical() {
+    const { containerHeight, containerWidth } = this.props;
+
+    return containerHeight > containerWidth;
+  }
+
   render() {
     const { isBreak, large } = this.props;
 
@@ -72,7 +82,7 @@ class Clock extends Component {
 
     return (
       <div id="clock" className={classnames(large && 'large')}>
-        <ProgressBar percent={this.percentTimeLeft} red={!isBreak}/>
+        <ProgressBar percent={this.percentTimeLeft} red={!isBreak} vertical={this.isVertical} />
         <div className="clock-time clock-text">
           {time}
         </div>
@@ -84,4 +94,7 @@ class Clock extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Clock);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  dimensions({ className: 'flex', elementResize: true }),
+)(Clock);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MediaQuery from 'react-responsive';
 
 import { userShape } from '../../propTypes';
 import { getUser } from '../../modules/user';
@@ -8,6 +7,7 @@ import { getUser } from '../../modules/user';
 import userPlaceholder from '../../static/images/user_placeholder.png';
 import Image from '../../components/Image';
 import { Link } from '../../components/links';
+import { Mobile } from '../../components/responsive';
 import { LogIn, LogOut } from '../../components/auth';
 import HeaderClock from './components/HeaderClock';
 
@@ -42,12 +42,9 @@ class Header extends Component {
         <div className="Header-left"/>
         <div className="Header-center">
           <Link to="/" className="Header-text" >
-            <MediaQuery maxDeviceWidth={800}>
-              SUAW247
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={801}>
-              Shut Up & Write 24/7
-            </MediaQuery>
+            <Mobile>
+              {match => <div>{match ? 'SUAW247' : 'Shut Up & Write 24/7'}</div>}
+            </Mobile>
           </Link>
         </div>
         <div className="Header-right">
