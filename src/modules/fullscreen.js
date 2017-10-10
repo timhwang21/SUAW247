@@ -18,6 +18,7 @@ export const setFullscreen = isFullscreen => ({
 })
 
 export const isFullscreen = state => state.fullscreen;
+export const canFullscreen = () => screenfull.enabled;
 
 const initialState = false;
 

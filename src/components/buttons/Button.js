@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { node, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 
+import { hidable } from '../decorators';
+
 import './Button.css';
 
 class Button extends Component {
@@ -40,4 +42,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default hidable(Button);

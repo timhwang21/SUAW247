@@ -13,11 +13,12 @@ import { LogIn, LogOut } from '../../components/auth';
 import { Button } from '../../components/buttons';
 import { Expand } from '../../components/icons';
 import HeaderClock from './components/HeaderClock';
-import { toggleFullscreen, isFullscreen } from '../../modules/fullscreen';
+import { toggleFullscreen, canFullscreen, isFullscreen } from '../../modules/fullscreen';
 
 import './Header.css';
 
 const mapStateToProps = state => ({
+  canFullscreen: canFullscreen(state),
   isFullscreen: isFullscreen(state),
   user: getUser(state),
 });
@@ -29,15 +30,16 @@ const mapDispatchToProps = {
 class Header extends Component {
   static propTypes = {
     user: userShape,
+    canFullscreen: bool,
     isFullscreen: bool,
     toggleFullscreen: func,
   };
 
   renderHeaderLeft() {
-    const { isFullscreen, toggleFullscreen } = this.props;
+    const { canFullscreen, isFullscreen, toggleFullscreen } = this.props;
 
     return (
-      <Button icon clear onClick={toggleFullscreen}>
+      <Button icon clear onClick={toggleFullscreen} hidden={!canFullscreen}>
         <Expand active={isFullscreen} />
       </Button>
     );
