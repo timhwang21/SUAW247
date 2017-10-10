@@ -22,6 +22,14 @@
   color: white;
 }
 
+.Button.clear:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.Button.clear:active {
+  background: rgba(255, 255, 255, .2);
+}
+
 .Button.dark {
   background: #666;
   color: #eee;
@@ -39,4 +47,5 @@
   width: 30px;
   font-size: 16px;
   padding: 0;
+  border-radius: 4px;
 }
