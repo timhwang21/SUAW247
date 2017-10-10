@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import classnames from 'classnames';
 
 import Clock from '../../components/Clock';
@@ -11,9 +12,19 @@ import Dashboard from './components/Dashboard';
 import Social from './components/Social';
 
 class Home extends Component {
-  state = {
-    bodyHidden: false,
+  static propTypes = {
+    match: object,
   };
+
+  constructor(props) {
+    super(props);
+
+    const { match } = props;
+
+    this.state = {
+      bodyHidden: !match.params.view,
+    };
+  }
 
   toggleBody = () => this.setState({ bodyHidden: !this.state.bodyHidden });
 
