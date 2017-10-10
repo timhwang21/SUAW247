@@ -22,7 +22,7 @@
   white-space: nowrap;
 }
 
-@media (max-width:800px)  {
+@media (max-width:768px)  {
   #clock .clock-message {
     display: none;
   }
