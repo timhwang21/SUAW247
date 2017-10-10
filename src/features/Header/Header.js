@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MediaQuery from 'react-responsive';
 
 import { userShape } from '../../propTypes';
 import { getUser } from '../../modules/user';
@@ -41,7 +42,12 @@ class Header extends Component {
         <div className="Header-left"/>
         <div className="Header-center">
           <Link to="/" className="Header-text" >
-            Shut Up & Write 24/7
+            <MediaQuery maxDeviceWidth={800}>
+              SUAW247
+            </MediaQuery>
+            <MediaQuery minDeviceWidth={801}>
+              Shut Up & Write 24/7
+            </MediaQuery>
           </Link>
         </div>
         <div className="Header-right">

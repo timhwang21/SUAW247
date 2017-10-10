@@ -73,10 +73,10 @@ class Clock extends Component {
     return (
       <div id="clock" className={classnames(large && 'large')}>
         <ProgressBar percent={this.percentTimeLeft} red={!isBreak}/>
-        <div className="clock-time clock-message">
+        <div className="clock-time clock-text">
           {time}
         </div>
-        <div className="clock-message">
+        <div className="clock-message clock-text">
           {message}
         </div>
       </div>

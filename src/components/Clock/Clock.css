@@ -16,15 +16,21 @@
   align-items: flex-start;
 }
 
-#clock .clock-message {
+#clock .clock-text {
   transition-duration: .5s;
   white-space: nowrap;
+}
+
+@media (max-width:800px)  {
+  #clock .clock-message {
+    display: none;
+  }
 }
 
 #clock.large .clock-time {
   width: 360px;
 }
 
-#clock.large .clock-message {
+#clock.large .clock-text {
   font-size: 120px;
 }
