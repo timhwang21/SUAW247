@@ -17,6 +17,11 @@
   background: #d0d0d0;
 }
 
+.Button.clear {
+  background: transparent;
+  color: white;
+}
+
 .Button.dark {
   background: #666;
   color: #eee;
@@ -28,4 +33,10 @@
 
 .Button.dark:active {
   background: #808080;
+}
+
+.Button.icon {
+  width: 30px;
+  font-size: 16px;
+  padding: 0;
 }

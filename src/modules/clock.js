@@ -45,11 +45,11 @@ export const setTime = () => dispatch => {
   }
 };
 
-const initialState = calcTime();
-
 export const getCurrentTime = state => format(state.clock.currentTime, 'hh:mm:ss');
 export const getTime = state => state.clock;
 export const getIsBreak = state => state.clock.minutes < 5;
+
+const initialState = calcTime();
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {

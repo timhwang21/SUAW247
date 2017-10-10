@@ -6,14 +6,14 @@ const Chevron = ({
   up,
   down,
   left,
-  right
+  right,
 }) => (
   <i
     className={classnames('fa', {
       'fa-chevron-up': up,
       'fa-chevron-down': down,
       'fa-chevron-left': left,
-      'fa-chevron-right': right
+      'fa-chevron-right': right,
     })}
   />
 );

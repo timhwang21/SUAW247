@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { userShape } from '../../propTypes';
@@ -9,18 +10,38 @@ import Image from '../../components/Image';
 import { Link } from '../../components/links';
 import { Mobile } from '../../components/responsive';
 import { LogIn, LogOut } from '../../components/auth';
+import { Button } from '../../components/buttons';
+import { Expand } from '../../components/icons';
 import HeaderClock from './components/HeaderClock';
+import { toggleFullscreen, isFullscreen } from '../../modules/fullscreen';
 
 import './Header.css';
 
 const mapStateToProps = state => ({
-  user: getUser(state)
+  isFullscreen: isFullscreen(state),
+  user: getUser(state),
 });
+
+const mapDispatchToProps = {
+  toggleFullscreen,
+};
 
 class Header extends Component {
   static propTypes = {
     user: userShape,
+    isFullscreen: bool,
+    toggleFullscreen: func,
   };
+
+  renderHeaderLeft() {
+    const { isFullscreen, toggleFullscreen } = this.props;
+
+    return (
+      <Button icon clear onClick={toggleFullscreen}>
+        <Expand active={isFullscreen} />
+      </Button>
+    );
+  }
 
   renderHeaderRight() {
     const { user } = this.props;
@@ -39,7 +60,9 @@ class Header extends Component {
   render() {
     return (
       <div id="Header">
-        <div className="Header-left"/>
+        <div className="Header-left">
+          {this.renderHeaderLeft()}
+        </div>
         <div className="Header-center">
           <Link to="/" className="Header-text" >
             <Mobile>
@@ -55,4 +78,4 @@ class Header extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

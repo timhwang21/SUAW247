@@ -5872,6 +5872,10 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
+screenfull@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-3.3.1.tgz#5eea886b412043af89e2e5cc4433f894d0ebb90b"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"

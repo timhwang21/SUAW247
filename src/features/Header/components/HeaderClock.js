@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { string, object } from 'prop-types';
+import { string } from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 
@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 class HeaderClock extends Component {
   static propTypes = {
     className: string,
-    currentTime: object,
+    currentTime: string,
   };
 
   get className() {

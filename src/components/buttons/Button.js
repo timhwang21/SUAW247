@@ -8,20 +8,24 @@ class Button extends Component {
   static propTypes = {
     children: node.isRequired,
     className: string,
+    clear: bool,
     dark: bool,
+    icon: bool,
     fullWidth: bool,
     id: string,
     onClick: func.isRequired,
   };
 
   get className() {
-    const { className, fullWidth, dark } = this.props;
+    const { className, clear, dark, icon, fullWidth } = this.props;
 
     return classnames({
       Button: true,
       [className]: className,
       'full-width': fullWidth,
+      clear,
       dark,
+      icon,
     });
   }
 

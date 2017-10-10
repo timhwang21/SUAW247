@@ -24,9 +24,9 @@ export const deleteAccount = () => dispatch => {
   });
 };
 
-const initialState = null;
-
 export const getUser = state => state.user;
+
+const initialState = null;
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
