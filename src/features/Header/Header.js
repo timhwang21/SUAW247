@@ -8,6 +8,7 @@ import userPlaceholder from '../../static/images/user_placeholder.png';
 import Image from '../../components/Image';
 import { Link } from '../../components/links';
 import { LogIn, LogOut } from '../../components/auth';
+import HeaderClock from './components/HeaderClock';
 
 import './Header.css';
 
@@ -23,16 +24,15 @@ class Header extends Component {
   renderHeaderRight() {
     const { user } = this.props;
 
-    if (user) {
-      return [
-        <Link className="Header-link" key="user" to="">
+    return [
+      <HeaderClock key="clock" className="Header-text" />,
+      user && (
+        <Link className="Header-text" key="user" to="" >
           <Image src={user.photoURL || userPlaceholder} title={user.displayName} small circle />
-        </Link>,
-        <LogOut key="logout"/>
-      ];
-    }
-
-    return <LogIn/>;
+        </Link>
+      ),
+      user ? <LogOut key="log" /> : <LogIn key="log" />,
+    ];
   }
 
   render() {
@@ -40,7 +40,7 @@ class Header extends Component {
       <div id="Header">
         <div className="Header-left"/>
         <div className="Header-center">
-          <Link to="/" className="Header-link" >
+          <Link to="/" className="Header-text" >
             Shut Up & Write 24/7
           </Link>
         </div>
