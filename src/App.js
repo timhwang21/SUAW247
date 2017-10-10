@@ -12,20 +12,31 @@ import firebase from './firebase';
 import { Route404 } from './components/routes';
 import { LogInPage } from './components/auth';
 import { login } from './modules/user';
+import { setTime } from './modules/clock';
 
 import './App.css';
 
 const mapDispatchToProps = {
   login,
+  setTime,
 };
 
 class App extends Component {
   static propTypes = {
     login: func,
+    setTime: func,
   };
 
   componentDidMount() {
+    const { setTime } = this.props;
+
+    this.interval = setInterval(setTime, 1000);
+
     firebase.auth().onAuthStateChanged(this.handleAuthStateChanged);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   handleAuthStateChanged = user => {

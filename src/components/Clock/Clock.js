@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { bool, number, func } from 'prop-types';
+import { bool, number } from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { padStart } from 'lodash';
 import dimensions from 'react-dimensions';
 
-import { getTime, getIsBreak, setTime } from '../../modules/clock';
+import { getTime, getIsBreak } from '../../modules/clock';
 import { timeShape } from '../../propTypes';
 import ProgressBar from '../ProgressBar';
 
@@ -27,29 +27,14 @@ const mapStateToProps = state => ({
   isBreak: getIsBreak(state),
 });
 
-const mapDispatchToProps = {
-  setTime,
-};
-
 class Clock extends Component {
   static propTypes = {
     time: timeShape.isRequired,
     isBreak: bool.isRequired,
-    setTime: func.isRequired,
     large: bool,
     containerHeight: number,
     containerWidth: number,
   };
-
-  componentDidMount() {
-    const { setTime } = this.props;
-
-    this.interval = setInterval(setTime, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
 
   get timeMessage() {
     const { isBreak, time: { minutes, seconds } } = this.props;
@@ -95,6 +80,6 @@ class Clock extends Component {
 }
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps),
   dimensions({ className: 'flex', elementResize: true }),
 )(Clock);

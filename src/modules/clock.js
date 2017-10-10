@@ -2,7 +2,8 @@ import {
   addMinutes,
   differenceInSeconds,
   endOfHour,
-  isBefore
+  isBefore,
+  format,
 } from 'date-fns';
 
 import { sendNotification } from './notification';
@@ -21,7 +22,7 @@ function calcTime() {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
 
-  return { totalSeconds, minutes, seconds };
+  return { totalSeconds, minutes, seconds, currentTime: now };
 }
 
 export const SET_TIME = 'clock/SET_TIME';
@@ -46,6 +47,7 @@ export const setTime = () => dispatch => {
 
 const initialState = calcTime();
 
+export const getCurrentTime = state => format(state.clock.currentTime, 'hh:mm:ss');
 export const getTime = state => state.clock;
 export const getIsBreak = state => state.clock.minutes < 5;
 

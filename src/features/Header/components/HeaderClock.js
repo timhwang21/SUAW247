@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
-import { string } from 'prop-types';
+import { string, object } from 'prop-types';
 import classnames from 'classnames';
-import { format } from 'date-fns';
+import { connect } from 'react-redux';
+
+import { getCurrentTime } from '../../../modules/clock';
 
 import './HeaderClock.css';
+
+const mapStateToProps = state => ({
+  currentTime: getCurrentTime(state),
+});
 
 class HeaderClock extends Component {
   static propTypes = {
     className: string,
+    currentTime: object,
   };
-
-  state = {
-    time: new Date(),
-  };
-
-  componentDidMount() {
-    this.interval = setInterval(this.setTime, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  setTime = () => this.setState({ time: new Date() });
-
-  get time() {
-    const { time } = this.state;
-
-    return format(time, 'hh:mm:ss');
-  }
 
   get className() {
     const { className } = this.props;
@@ -40,12 +27,14 @@ class HeaderClock extends Component {
   }
 
   render() {
+    const { currentTime } = this.props;
+
     return (
       <div id="HeaderClock" className={this.className} >
-        {this.time}
+        {currentTime}
       </div>
     );
   }
 }
 
-export default HeaderClock;
+export default connect(mapStateToProps)(HeaderClock);
