@@ -9,17 +9,18 @@
   position: relative;
 }
 
+#clock .clock-text {
+  transition-duration: .5s;
+  white-space: nowrap;
+  z-index: 1;
+}
+
 #clock .clock-time {
   width: 250px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#clock .clock-text {
-  transition-duration: .5s;
-  white-space: nowrap;
 }
 
 @media (max-width:768px)  {

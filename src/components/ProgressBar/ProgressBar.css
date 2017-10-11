@@ -1,16 +1,14 @@
-.ProgressBar-wrapper {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #c0ffc0;
-  z-index: -2;
-}
-
 .ProgressBar {
   position: absolute;
-  background: white;
-  z-index: -1;
+  bottom: 0;
+  right: 0;
+  background: #80ff80;
+  opacity: .5;
   transition-duration: .25s;
+}
+
+.ProgressBar.red {
+  background: #ff8080;
 }
 
 .ProgressBar.horizontal {
@@ -21,6 +19,3 @@
   width: 100%;
 }
 
-.ProgressBar-wrapper.red {
-  background: #ffc0c0;
-}

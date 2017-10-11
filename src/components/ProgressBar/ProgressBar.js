@@ -13,26 +13,25 @@ class ProgressBar extends Component {
   };
 
   get className() {
-    const { className, vertical } = this.props;
+    const { className, vertical, red } = this.props;
 
     return classnames({
       'ProgressBar': true,
       [className]: className,
       horizontal: !vertical,
       vertical,
+      red,
     });
   }
 
   render() {
-    const { percent, red, vertical } = this.props;
+    const { percent, vertical } = this.props;
 
     return (
-      <div className={classnames('ProgressBar-wrapper', red && 'red')}>
-        <div
-          className={this.className}
-          style={{ [vertical ? 'height' : 'width']: percent + '%' }}
-        />
-      </div>
+      <div
+        className={this.className}
+        style={{ [vertical ? 'height' : 'width']: (100 - percent) + '%' }}
+      />
     );
   }
 }
