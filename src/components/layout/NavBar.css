@@ -6,7 +6,7 @@
 
 .NavBar > * {
   width: 10%;
-  min-width: 75px;
+  min-width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
