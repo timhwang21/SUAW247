@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "date-fns": "^2.0.0-alpha.7",
+    "firebase": "^4.5.1",
     "firebaseui": "^2.4.0",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
@@ -30,5 +31,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "yarn build && firebase deploy"
+  },
+  "devDependencies": {
+    "firebase-tools": "^3.13.1"
   }
 }
