@@ -3,6 +3,7 @@ import { object } from 'prop-types';
 import classnames from 'classnames';
 
 import Clock from '../../components/Clock';
+import Dropzone from '../../components/Dropzone';
 import { Button } from '../../components/buttons';
 import { Chevron } from '../../components/icons';
 
@@ -23,18 +24,38 @@ class Home extends Component {
 
     this.state = {
       bodyHidden: !match.params.view,
+      background: null,
     };
   }
 
   toggleBody = () => this.setState({ bodyHidden: !this.state.bodyHidden });
+
+  setBackground = image => this.setState({ background: image[0].preview });
+
+  get style() {
+    const { background } = this.state;
+
+    return { backgroundImage: `url('${background}')` };
+  }
 
   render() {
     const { bodyHidden } = this.state;
 
     return (
       <div id="Home">
-        <div className={classnames('Home-header', { 'body-hidden': bodyHidden })}>
-          <Clock large={bodyHidden}/>
+        <div
+          className={classnames('Home-header', { 'body-hidden': bodyHidden })}
+          style={this.style}
+        >
+          <Dropzone
+            className="dropzone"
+            acceptClassName="accept"
+            accept="image/*"
+            disableClick
+            onDropAccepted={this.setBackground}
+          >
+            <Clock large={bodyHidden}/>
+          </Dropzone>
           <Button
             className="Home-toggle"
             onClick={this.toggleBody}

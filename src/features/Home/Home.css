@@ -10,6 +10,7 @@
   height: 150px;
   align-items: center;
   transition-duration: .5s;
+  background-position: center;
 }
 
 .Home-header.body-hidden {
