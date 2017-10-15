@@ -44,7 +44,7 @@ class Now extends Component {
           <Field name="productivity" label="Productivity" component={Scale} />
           <Field name="focus" label="Focus" component={Scale} />
           <Button form submit>
-            Save
+            Save (Demo)
           </Button>
         </form>
       </Panel>
