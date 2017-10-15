@@ -1,6 +1,8 @@
 #Home {
-  height: 100%;
   flex-grow: 1;
+}
+
+#Home.body-hidden {
   overflow-y: hidden;
 }
 
@@ -13,17 +15,13 @@
   background-position: center;
 }
 
-.Home-header.body-hidden {
-  height: 100%;
+#Home.body-hidden .Home-header {
+  height: calc(100vh - 50px);
 }
 
 .Home-body {
   background: #e0e0e0;
-  height: calc(100% - 150px);
   display: flex;
-}
-
-.Home-body.body-hidden {
 }
 
 .Home-toggle {

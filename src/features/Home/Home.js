@@ -65,11 +65,8 @@ class Home extends Component {
     const { bodyHidden, toggleBody } = this.props;
 
     return (
-      <div id="Home">
-        <div
-          className={classnames('Home-header', { 'body-hidden': bodyHidden })}
-          style={this.style}
-        >
+      <div id="Home" className={classnames(bodyHidden && 'body-hidden')}>
+        <div className="Home-header" style={this.style}>
           <Dropzone
             className="dropzone"
             acceptClassName="accept"
