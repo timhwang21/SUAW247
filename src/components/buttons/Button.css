@@ -7,6 +7,7 @@
   height: 30px;
   min-width: 60px;
   justify-content: center;
+  padding: 0;
   white-space: nowrap;
 }
 
@@ -63,6 +64,5 @@
   width: 30px;
   min-width: 30px;
   font-size: 16px;
-  padding: 0;
   border-radius: 4px;
 }
