@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { func } from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 
-import { Panel } from '../../../../../../components/layout';
+import { Panel, Row } from '../../../../../../components/layout';
 import { Button } from '../../../../../../components/buttons';
 import { Input, Scale } from '../../../../../../components/form';
 import { required } from '../../../../../../utils/validations';
@@ -32,8 +32,8 @@ class Now extends Component {
             name="goal"
             label="Goal"
             component={Input}
-            large
             validate={required}
+            large
           />
           <Field
             name="accomplishment"
@@ -41,8 +41,15 @@ class Now extends Component {
             component={Input}
             large
           />
-          <Field name="productivity" label="Productivity" component={Scale} />
-          <Field name="focus" label="Focus" component={Scale} />
+          <Row>
+            <Field
+              name="productivity"
+              label="Productivity"
+              component={Scale}
+              small
+            />
+            <Field name="focus" label="Focus" component={Scale} small />
+          </Row>
           <Button form submit>
             Save (Demo)
           </Button>

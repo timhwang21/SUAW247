@@ -14,14 +14,13 @@ class Button extends Component {
     dark: bool,
     icon: bool,
     fullWidth: bool,
-    form: bool,
     submit: bool,
     id: string,
     onClick: func.isRequired,
   };
 
   get className() {
-    const { className, clear, dark, icon, fullWidth, form } = this.props;
+    const { className, clear, dark, icon, fullWidth } = this.props;
 
     return classnames({
       Button: true,
@@ -30,7 +29,6 @@ class Button extends Component {
       clear,
       dark,
       icon,
-      form,
     });
   }
 

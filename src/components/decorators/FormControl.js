@@ -13,7 +13,13 @@ export default C => {
     large,
     ...props
   }) => (
-    <div className="form-control-wrapper">
+    <div
+      className={classnames({
+        'form-control-wrapper': true,
+        small,
+        large,
+      })}
+    >
       <label>{label}</label>
       <div
         className={classnames(
@@ -21,15 +27,7 @@ export default C => {
           touched && error && 'has-error',
         )}
       >
-        <C
-          {...input}
-          {...props}
-          className={classnames(
-            'form-control',
-            small && 'small',
-            large && 'large',
-          )}
-        />
+        <C {...input} {...props} className="form-control" />
         {touched && error && <span className="form-error">{error}</span>}
       </div>
     </div>
@@ -46,7 +44,7 @@ export default C => {
     large: bool,
   };
 
-  CC.displayName = 'Hidable.' + C.displayName;
+  CC.displayName = 'FormControl.' + C.displayName;
 
   return CC;
 };

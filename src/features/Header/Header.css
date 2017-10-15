@@ -16,6 +16,13 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .Header-left,
+  .Header-right {
+    min-width: initial;
+  }
+}
+
 .Header-right {
   justify-content: flex-end;
 }

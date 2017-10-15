@@ -1,0 +1,13 @@
+.Row {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.Row.small {
+  width: 50%;
+}
+
+.Row.large {
+  width: 100%;
+}
