@@ -23,6 +23,7 @@
     "redux-form": "^7.1.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "screenfull": "^3.3.1"
   },
   "devDependencies": {
