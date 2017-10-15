@@ -14,12 +14,13 @@ import { Route404 } from './components/routes';
 import { setTime } from './modules/clock';
 import { setFullscreen } from './modules/fullscreen';
 import { sendNotification } from './modules/notification';
-import { login } from './modules/user';
+import { login, logout } from './modules/user';
 
 import './App.css';
 
 const mapDispatchToProps = {
   login,
+  logout,
   sendNotification,
   setFullscreen,
   setTime,
@@ -28,6 +29,7 @@ const mapDispatchToProps = {
 class App extends Component {
   static propTypes = {
     login: func,
+    logout: func,
     sendNotification: func,
     setFullscreen: func,
     setTime: func,
@@ -56,9 +58,9 @@ class App extends Component {
   }
 
   handleAuthStateChanged = user => {
-    const { login } = this.props;
+    const { login, logout } = this.props;
 
-    user && login(user);
+    user ? login(user) : logout();
   };
 
   render() {

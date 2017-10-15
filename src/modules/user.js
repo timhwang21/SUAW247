@@ -36,17 +36,29 @@ export const deleteAccount = () => dispatch => {
   });
 };
 
-export const getUser = state => state.user;
+export const getUser = state => state.user.user;
+export const getMaybeHasUser = state => state.user.maybeHasUser;
 
-const initialState = null;
+const initialState = {
+  user: null,
+  maybeHasUser: true,
+};
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN:
-      return payload;
+      return {
+        ...state,
+        user: payload,
+        maybeHasUser: true,
+      };
     case LOGOUT:
     case DELETE_ACCOUNT:
-      return initialState;
+      return {
+        ...state,
+        user: null,
+        maybeHasUser: false,
+      };
     default:
       return state;
   }
