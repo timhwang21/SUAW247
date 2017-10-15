@@ -22,3 +22,11 @@
     * [ ] Smart saving
         * Always be aware of most recent entry
         * If most recent entry `created_at` is before `state.nextCutoff`, update instead of create
+    * [ ] Fetching posts
+        * Posts should belong to a user and a session
+        * Supported operations:
+            * Fetch all posts from a user
+            * Fetch most recent post from a user (for smart saving)
+            * Fetch all posts from a session
+        * Index on: user, session
+        * MVP: User operations only
