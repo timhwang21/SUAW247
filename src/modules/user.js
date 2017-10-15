@@ -1,9 +1,21 @@
+import pick from 'lodash/fp/pick';
+
 import { FirebaseActions } from '../firebase';
+
+const getUserProperties = pick([
+  'displayName',
+  'email',
+  'emailVerified',
+  'isAnonymous',
+  'photoUrl',
+  'refreshToken',
+  'uid',
+]);
 
 export const LOGIN = 'user/LOGIN';
 export const login = user => ({
   type: LOGIN,
-  payload: { ...user },
+  payload: getUserProperties(user),
 });
 
 export const LOGOUT = 'user/LOGOUT';
