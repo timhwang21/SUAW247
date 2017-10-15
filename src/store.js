@@ -11,5 +11,5 @@ export const history = createHistory();
 export default createStore(
   reducer,
   {},
-  applyMiddleware(routerMiddleware(history), thunk, logger),
+  applyMiddleware(routerMiddleware(history), thunk),
 );

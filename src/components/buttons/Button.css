@@ -1,11 +1,12 @@
 .Button {
-  height: 30px;
-  display: flex;
   align-items: center;
-  justify-content: center;
   background: #e6e6e6;
   border-radius: 0;
   border: 0;
+  display: flex;
+  height: 30px;
+  min-width: 60px;
+  justify-content: center;
   white-space: nowrap;
 }
 
@@ -15,6 +16,11 @@
 
 .Button:active {
   background: #d0d0d0;
+}
+
+.Button:disabled {
+  background: #d0d0d0;
+  color: #666;
 }
 
 .Button.clear {
@@ -30,6 +36,11 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+.Button.clear:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  color: #666;
+}
+
 .Button.dark {
   background: #666;
   color: #eee;
@@ -43,8 +54,14 @@
   background: #808080;
 }
 
+.Button.dark:disabled {
+  background: #808080;
+  color: #e0e0e0;
+}
+
 .Button.icon {
   width: 30px;
+  min-width: 30px;
   font-size: 16px;
   padding: 0;
   border-radius: 4px;

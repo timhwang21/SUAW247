@@ -15,8 +15,10 @@ class Button extends Component {
     icon: bool,
     fullWidth: bool,
     submit: bool,
+    disabled: bool,
     id: string,
     onClick: func.isRequired,
+    onMouseEnter: func,
   };
 
   get className() {
@@ -33,13 +35,15 @@ class Button extends Component {
   }
 
   render() {
-    const { submit, children, onClick } = this.props;
+    const { disabled, submit, children, onClick, onMouseEnter } = this.props;
 
     return (
       <button
         className={this.className}
+        disabled={disabled}
         type={submit ? 'submit' : 'button'}
         onClick={onClick}
+        onMouseEnter={onMouseEnter}
       >
         {children}
       </button>

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { func } from 'prop-types';
+import { bool, func } from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { createPost } from '../../../../../../modules/posts';
 import { Panel, Row } from '../../../../../../components/layout';
-import { Button } from '../../../../../../components/buttons';
+import { SaveButton } from '../../../../../../components/buttons';
 import { Input, Scale } from '../../../../../../components/form';
 import { required } from '../../../../../../utils/validations';
 
@@ -11,19 +14,22 @@ import './Now.css';
 
 const config = {
   form: 'nowForm',
-  onSubmit: values => {
-    debugger;
-    console.log(values);
-  },
+  destroyOnUnmount: false,
 };
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: values => dispatch(createPost(values)),
+});
 
 class Now extends Component {
   static propTypes = {
     handleSubmit: func,
+    submitting: bool,
+    submitSucceeded: bool,
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, submitting, submitSucceeded } = this.props;
 
     return (
       <Panel id="Now">
@@ -50,13 +56,16 @@ class Now extends Component {
             />
             <Field name="focus" label="Focus" component={Scale} small />
           </Row>
-          <Button form submit>
-            Save (Demo)
-          </Button>
+          <SaveButton
+            submitting={submitting}
+            submitSucceeded={submitSucceeded}
+          />
         </form>
       </Panel>
     );
   }
 }
 
-export default reduxForm(config)(Now);
+export default compose(connect(null, mapDispatchToProps), reduxForm(config))(
+  Now,
+);
