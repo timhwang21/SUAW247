@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { push } from 'react-router-redux';
 
+import { openBody } from '../../modules/ui';
 import { hidable } from '../decorators';
 import { Button } from '../buttons';
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch(push('/login')),
+  login: () => {
+    dispatch(openBody());
+    dispatch(push('/login'));
+  },
 });
 
 const LogIn = ({ login }) => (

@@ -1,34 +1,57 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
+import { connect } from 'react-redux';
+import { object, bool, func } from 'prop-types';
 import classnames from 'classnames';
 
 import Clock from '../../components/Clock';
 import Dropzone from '../../components/Dropzone';
 import { Button } from '../../components/buttons';
 import { Chevron } from '../../components/icons';
-
-import './Home.css';
+import {
+  isBodyHidden,
+  openBody,
+  closeBody,
+  toggleBody,
+} from '../../modules/ui';
 
 import Dashboard from './components/Dashboard';
 import Social from './components/Social';
 
+import './Home.css';
+
+const mapStateToProps = state => ({
+  bodyHidden: isBodyHidden(state),
+});
+
+const mapDispatchToProps = {
+  openBody,
+  closeBody,
+  toggleBody,
+};
+
 class Home extends Component {
   static propTypes = {
     match: object,
+    bodyHidden: bool,
+    openBody: func,
+    toggleBody: func,
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    background: null,
+  };
 
-    const { match } = props;
+  componentWillMount() {
+    const { openBody } = this.props;
 
-    this.state = {
-      bodyHidden: !match.params.view,
-      background: null,
-    };
+    this.atNestedRoute && openBody();
   }
 
-  toggleBody = () => this.setState({ bodyHidden: !this.state.bodyHidden });
+  get atNestedRoute() {
+    const { match } = this.props;
+
+    return match.params.view && match.params.view !== 'login';
+  }
 
   setBackground = image => this.setState({ background: image[0].preview });
 
@@ -39,7 +62,7 @@ class Home extends Component {
   }
 
   render() {
-    const { bodyHidden } = this.state;
+    const { bodyHidden, toggleBody } = this.props;
 
     return (
       <div id="Home">
@@ -56,7 +79,7 @@ class Home extends Component {
           >
             <Clock large={bodyHidden} />
           </Dropzone>
-          <Button className="Home-toggle" onClick={this.toggleBody} fullWidth>
+          <Button className="Home-toggle" onClick={toggleBody} fullWidth>
             <Chevron up={bodyHidden} down={!bodyHidden} />
           </Button>
         </div>
@@ -69,4 +92,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

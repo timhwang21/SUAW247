@@ -5,11 +5,15 @@ import { compose } from 'redux';
 
 import { hidable } from '../decorators';
 import { Button } from '../buttons';
+import { closeBody } from '../../modules/ui';
 import { logout } from '../../modules/user';
 
-const mapDispatchToProps = {
-  logout,
-};
+const mapDispatchToProps = dispatch => ({
+  logout: () => {
+    dispatch(closeBody());
+    dispatch(logout());
+  },
+});
 
 const LogOut = ({ logout }) => (
   <Button dark onClick={logout}>

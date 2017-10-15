@@ -11,7 +11,6 @@ import NotFound from './features/NotFound';
 
 import firebase from './firebase';
 import { Route404 } from './components/routes';
-import { LogInPage } from './components/auth';
 import { setTime } from './modules/clock';
 import { setFullscreen } from './modules/fullscreen';
 import { sendNotification } from './modules/notification';
@@ -67,8 +66,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/:view(now|today|week)?" component={Home} />
-          <Route exact path="/login" component={LogInPage} />
+          <Route exact path="/:view(now|today|week|login)?" component={Home} />
           <Route exact path="/404" component={NotFound} />
           <Route404 />
         </Switch>
