@@ -8,12 +8,12 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Avenir Next", Futura, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir Next', Futura, Helvetica, Arial, sans-serif;
 }
 
 input {
   /* temporary */
-  font-family: "Avenir Next", Futura, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir Next', Futura, Helvetica, Arial, sans-serif;
 }
 
 *:focus {

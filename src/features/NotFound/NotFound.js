@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Link } from '../../components/links'
+import { Link } from '../../components/links';
 
-import './NotFound.css'
+import './NotFound.css';
 
 const NotFound = () => (
   <div id="not-found">
@@ -11,4 +11,4 @@ const NotFound = () => (
   </div>
 );
 
-export default NotFound
+export default NotFound;

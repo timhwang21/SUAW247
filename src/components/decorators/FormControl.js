@@ -15,11 +15,20 @@ export default C => {
   }) => (
     <div className="form-control-wrapper">
       <label>{label}</label>
-      <div className={classnames('form-control-container', touched && error && 'has-error')}>
+      <div
+        className={classnames(
+          'form-control-container',
+          touched && error && 'has-error',
+        )}
+      >
         <C
           {...input}
           {...props}
-          className={classnames('form-control', small && 'small', large && 'large')}
+          className={classnames(
+            'form-control',
+            small && 'small',
+            large && 'large',
+          )}
         />
         {touched && error && <span className="form-error">{error}</span>}
       </div>
@@ -35,9 +44,9 @@ export default C => {
     }),
     small: bool,
     large: bool,
-  }
+  };
 
   CC.displayName = 'Hidable.' + C.displayName;
 
   return CC;
-}
+};

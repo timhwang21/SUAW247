@@ -48,14 +48,11 @@ class LogIn extends Component {
     this.ui.reset();
   }
 
-  setRef = node => this.container = node;
+  setRef = node => (this.container = node);
 
   render() {
-    return <div id="LogInPage" ref={this.setRef}></div>;
+    return <div id="LogInPage" ref={this.setRef} />;
   }
 }
 
-export default compose(
-  hidable,
-  connect(null, mapDispatchToProps),
-)(LogIn);
+export default compose(hidable, connect(null, mapDispatchToProps))(LogIn);

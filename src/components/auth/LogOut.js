@@ -19,11 +19,8 @@ const LogOut = ({ logout }) => (
 
 LogOut.propTypes = {
   logout: func,
-}
+};
 
 LogOut.displayName = 'LogOut';
 
-export default compose(
-  hidable,
-  connect(null, mapDispatchToProps),
-)(LogOut);
+export default compose(hidable, connect(null, mapDispatchToProps))(LogOut);

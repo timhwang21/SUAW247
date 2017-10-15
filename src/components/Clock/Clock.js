@@ -40,16 +40,22 @@ class Clock extends Component {
     const { isBreak, time: { minutes, seconds } } = this.props;
 
     return isBreak
-      ? { time: formatTime({ minutes, seconds }), message: 'until next session' }
-      : { time: formatTime({ minutes: minutes - 5, seconds }), message: 'until break' };
+      ? {
+          time: formatTime({ minutes, seconds }),
+          message: 'until next session',
+        }
+      : {
+          time: formatTime({ minutes: minutes - 5, seconds }),
+          message: 'until break',
+        };
   }
 
   get percentTimeLeft() {
     const { isBreak, time: { totalSeconds } } = this.props;
 
     const percentLeft = isBreak
-      ? (totalSeconds / BREAK_SECONDS)
-      : ((totalSeconds - BREAK_SECONDS) / WORK_SECONDS);
+      ? totalSeconds / BREAK_SECONDS
+      : (totalSeconds - BREAK_SECONDS) / WORK_SECONDS;
 
     return 100 - Number((percentLeft * 100).toFixed(2));
   }
@@ -67,13 +73,13 @@ class Clock extends Component {
 
     return (
       <div id="clock" className={classnames(large && 'large')}>
-        <ProgressBar percent={this.percentTimeLeft} red={!isBreak} vertical={this.isVertical} />
-        <div className="clock-time clock-text">
-          {time}
-        </div>
-        <div className="clock-message clock-text">
-          {message}
-        </div>
+        <ProgressBar
+          percent={this.percentTimeLeft}
+          red={!isBreak}
+          vertical={this.isVertical}
+        />
+        <div className="clock-time clock-text">{time}</div>
+        <div className="clock-message clock-text">{message}</div>
       </div>
     );
   }

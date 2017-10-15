@@ -6,11 +6,7 @@ import './Week.css';
 
 class Week extends Component {
   render() {
-    return (
-      <Panel id="Week">
-        Week
-      </Panel>
-    );
+    return <Panel id="Week">Week</Panel>;
   }
 }
 

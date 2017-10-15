@@ -19,11 +19,8 @@ const LogIn = ({ login }) => (
 
 LogIn.propTypes = {
   login: func,
-}
+};
 
 LogIn.displayName = 'LogIn';
 
-export default compose(
-  hidable,
-  connect(null, mapDispatchToProps),
-)(LogIn);
+export default compose(hidable, connect(null, mapDispatchToProps))(LogIn);

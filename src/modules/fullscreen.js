@@ -15,7 +15,7 @@ export const SET_FULLSCREEN = 'notification/SET_FULLSCREEN';
 export const setFullscreen = isFullscreen => ({
   type: SET_FULLSCREEN,
   payload: isFullscreen,
-})
+});
 
 export const isFullscreen = state => state.fullscreen;
 export const canFullscreen = () => screenfull.enabled;

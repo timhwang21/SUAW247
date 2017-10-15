@@ -32,14 +32,7 @@ class Image extends Component {
   render() {
     const { src, title, alt } = this.props;
 
-    return (
-      <img
-        className={this.className}
-        src={src}
-        title={title}
-        alt={alt}
-      />
-    );
+    return <img className={this.className} src={src} title={title} alt={alt} />;
   }
 }
 

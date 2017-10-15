@@ -3,8 +3,8 @@
   bottom: 0;
   right: 0;
   background: #80ff80;
-  opacity: .5;
-  transition-duration: .25s;
+  opacity: 0.5;
+  transition-duration: 0.25s;
 }
 
 .ProgressBar.red {
@@ -18,4 +18,3 @@
 .ProgressBar.vertical {
   width: 100%;
 }
-

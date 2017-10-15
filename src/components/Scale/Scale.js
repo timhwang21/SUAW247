@@ -59,16 +59,12 @@ class Scale extends Component {
         onMouseLeave={this.handleMouseLeave}
         onClick={this.handleChange}
       />
-    ))
+    ));
   }
 
   render() {
-    return (
-      <div className={this.className}>
-        {this.renderItems()}
-      </div>
-    );
+    return <div className={this.className}>{this.renderItems()}</div>;
   }
 }
 
-export default hidable(Scale)
+export default hidable(Scale);

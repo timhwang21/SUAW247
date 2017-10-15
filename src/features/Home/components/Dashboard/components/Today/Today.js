@@ -6,11 +6,7 @@ import './Today.css';
 
 class Today extends Component {
   render() {
-    return (
-      <Panel id="Today">
-        Today
-      </Panel>
-    );
+    return <Panel id="Today">Today</Panel>;
   }
 }
 

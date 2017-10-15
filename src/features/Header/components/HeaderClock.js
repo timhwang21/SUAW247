@@ -30,7 +30,7 @@ class HeaderClock extends Component {
     const { currentTime } = this.props;
 
     return (
-      <div id="HeaderClock" className={this.className} >
+      <div id="HeaderClock" className={this.className}>
         {currentTime}
       </div>
     );

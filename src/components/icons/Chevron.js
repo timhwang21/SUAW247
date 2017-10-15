@@ -1,13 +1,8 @@
-import React from 'react'
-import { bool } from 'prop-types'
-import classnames from 'classnames'
+import React from 'react';
+import { bool } from 'prop-types';
+import classnames from 'classnames';
 
-const Chevron = ({
-  up,
-  down,
-  left,
-  right,
-}) => (
+const Chevron = ({ up, down, left, right }) => (
   <i
     className={classnames('fa', {
       'fa-chevron-up': up,

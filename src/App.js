@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { func } from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom';
 import * as screenfull from 'screenfull';
 
 import Header from './features/Header';
@@ -48,7 +48,7 @@ class App extends Component {
 
     // Set up fullscreen check
     if (screenfull.enabled) {
-      screenfull.on('change', () => setFullscreen(screenfull.isFullscreen))
+      screenfull.on('change', () => setFullscreen(screenfull.isFullscreen));
     }
   }
 
@@ -60,24 +60,21 @@ class App extends Component {
     const { login } = this.props;
 
     user && login(user);
-  }
+  };
 
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header />
         <Switch>
-          <Route exact path="/:view(now|today|week)?" component={Home}/>
+          <Route exact path="/:view(now|today|week)?" component={Home} />
           <Route exact path="/login" component={LogInPage} />
           <Route exact path="/404" component={NotFound} />
-          <Route404/>
+          <Route404 />
         </Switch>
       </div>
     );
   }
 }
 
-export default compose(
-  withRouter,
-  connect(null, mapDispatchToProps),
-)(App);
+export default compose(withRouter, connect(null, mapDispatchToProps))(App);

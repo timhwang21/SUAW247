@@ -1,6 +1,6 @@
-import React from 'react'
-import { bool } from 'prop-types'
-import classnames from 'classnames'
+import React from 'react';
+import { bool } from 'prop-types';
+import classnames from 'classnames';
 
 const Expand = ({ active }) => (
   <i

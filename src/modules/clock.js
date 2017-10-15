@@ -16,7 +16,7 @@ function calcTime() {
 
   const totalSeconds = differenceInSeconds(
     isFirstHalfHour ? nextHalfHour : nextHour,
-    now
+    now,
   );
 
   const minutes = Math.floor(totalSeconds / 60);
@@ -45,7 +45,8 @@ export const setTime = () => dispatch => {
   }
 };
 
-export const getCurrentTime = state => format(state.clock.currentTime, 'hh:mm:ss');
+export const getCurrentTime = state =>
+  format(state.clock.currentTime, 'hh:mm:ss');
 export const getTime = state => state.clock;
 export const getIsBreak = state => state.clock.minutes < 5;
 

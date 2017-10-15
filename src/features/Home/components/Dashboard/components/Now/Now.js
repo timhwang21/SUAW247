@@ -11,7 +11,10 @@ import './Now.css';
 
 const config = {
   form: 'nowForm',
-  onSubmit: values => { debugger; console.log(values); },
+  onSubmit: values => {
+    debugger;
+    console.log(values);
+  },
 };
 
 class Now extends Component {
@@ -38,16 +41,8 @@ class Now extends Component {
             component={Input}
             large
           />
-          <Field
-            name="productivity"
-            label="Productivity"
-            component={Scale}
-          />
-          <Field
-            name="focus"
-            label="Focus"
-            component={Scale}
-          />
+          <Field name="productivity" label="Productivity" component={Scale} />
+          <Field name="focus" label="Focus" component={Scale} />
           <Button form submit>
             Save
           </Button>

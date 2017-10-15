@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 
-import clock from './clock'
-import fullscreen from './fullscreen'
-import user from './user'
+import clock from './clock';
+import fullscreen from './fullscreen';
+import user from './user';
 
 export default combineReducers({
   clock,
@@ -12,4 +12,4 @@ export default combineReducers({
   user,
   router: routerReducer,
   form: formReducer,
-})
+});

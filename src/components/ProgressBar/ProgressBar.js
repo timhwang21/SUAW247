@@ -16,7 +16,7 @@ class ProgressBar extends Component {
     const { className, vertical, red } = this.props;
 
     return classnames({
-      'ProgressBar': true,
+      ProgressBar: true,
       [className]: className,
       horizontal: !vertical,
       vertical,
@@ -30,7 +30,7 @@ class ProgressBar extends Component {
     return (
       <div
         className={this.className}
-        style={{ [vertical ? 'height' : 'width']: (100 - percent) + '%' }}
+        style={{ [vertical ? 'height' : 'width']: 100 - percent + '%' }}
       />
     );
   }

@@ -13,7 +13,11 @@ import { LogIn, LogOut } from '../../components/auth';
 import { Button } from '../../components/buttons';
 import { Expand } from '../../components/icons';
 import HeaderClock from './components/HeaderClock';
-import { toggleFullscreen, canFullscreen, isFullscreen } from '../../modules/fullscreen';
+import {
+  toggleFullscreen,
+  canFullscreen,
+  isFullscreen,
+} from '../../modules/fullscreen';
 
 import './Header.css';
 
@@ -51,8 +55,13 @@ class Header extends Component {
     return [
       <HeaderClock key="clock" className="Header-text" />,
       user && (
-        <Link className="Header-text" key="user" to="" >
-          <Image src={user.photoURL || userPlaceholder} title={user.displayName} small circle />
+        <Link className="Header-text" key="user" to="">
+          <Image
+            src={user.photoURL || userPlaceholder}
+            title={user.displayName}
+            small
+            circle
+          />
         </Link>
       ),
       user ? <LogOut key="log" /> : <LogIn key="log" />,
@@ -62,19 +71,15 @@ class Header extends Component {
   render() {
     return (
       <div id="Header">
-        <div className="Header-left">
-          {this.renderHeaderLeft()}
-        </div>
+        <div className="Header-left">{this.renderHeaderLeft()}</div>
         <div className="Header-center">
-          <Link to="/" className="Header-text" >
+          <Link to="/" className="Header-text">
             <Mobile>
               {match => <div>{match ? 'SUAW247' : 'Shut Up & Write 24/7'}</div>}
             </Mobile>
           </Link>
         </div>
-        <div className="Header-right">
-          {this.renderHeaderRight()}
-        </div>
+        <div className="Header-right">{this.renderHeaderRight()}</div>
       </div>
     );
   }

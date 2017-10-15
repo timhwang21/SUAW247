@@ -42,10 +42,7 @@ class ScaleItem extends Component {
         onMouseLeave={this.handleMouseLeave}
         onClick={this.handleClick}
       >
-        <Star
-          hover={hover}
-          active={active}
-        />
+        <Star hover={hover} active={active} />
       </div>
     );
   }

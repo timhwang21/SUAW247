@@ -10,7 +10,7 @@
 }
 
 #clock .clock-text {
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   white-space: nowrap;
   z-index: 1;
 }
@@ -23,7 +23,7 @@
   justify-content: center;
 }
 
-@media (max-width:768px)  {
+@media (max-width: 768px) {
   #clock .clock-message {
     display: none;
   }

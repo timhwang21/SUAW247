@@ -54,19 +54,15 @@ class Home extends Component {
             disableClick
             onDropAccepted={this.setBackground}
           >
-            <Clock large={bodyHidden}/>
+            <Clock large={bodyHidden} />
           </Dropzone>
-          <Button
-            className="Home-toggle"
-            onClick={this.toggleBody}
-            fullWidth
-          >
-            <Chevron up={bodyHidden} down={!bodyHidden}/>
+          <Button className="Home-toggle" onClick={this.toggleBody} fullWidth>
+            <Chevron up={bodyHidden} down={!bodyHidden} />
           </Button>
         </div>
         <div className={classnames('Home-body', { 'body-hidden': bodyHidden })}>
-          <Dashboard/>
-          <Social/>
+          <Dashboard />
+          <Social />
         </div>
       </div>
     );
