@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { node, string, bool, func, oneOf } from 'prop-types';
+import { node, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 
 import { hidable } from '../decorators';

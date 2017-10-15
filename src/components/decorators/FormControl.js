@@ -4,13 +4,6 @@ import classnames from 'classnames';
 
 import './formControl.css';
 
-const className = ({ error, small, large }) => classnames({
-  'form-control': true,
-  'has-error': error,
-  small,
-  large,
-});
-
 export default C => {
   const CC = ({
     input,
