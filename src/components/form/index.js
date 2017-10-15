@@ -1,6 +1,8 @@
-import { FormControl } from '../decorators';
+import { formControl } from '../decorators';
+import _Scale from '../Scale';
 
-export default {
-  Input: FormControl('input'),
-  TextArea: FormControl('textarea'),
-};
+export default formControl;
+
+export const Input = formControl('input');
+export const Scale = formControl(_Scale);
+export const TextArea = formControl('textarea');

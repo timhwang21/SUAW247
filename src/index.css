@@ -11,6 +11,11 @@ body {
   font-family: "Avenir Next", Futura, Helvetica, Arial, sans-serif;
 }
 
+input {
+  /* temporary */
+  font-family: "Avenir Next", Futura, Helvetica, Arial, sans-serif;
+}
+
 *:focus {
   outline: 0;
   outline: none;
