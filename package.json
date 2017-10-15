@@ -29,7 +29,8 @@
     "firebase-tools": "^3.13.1",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
-    "prettier": "1.7.4"
+    "prettier": "1.7.4",
+    "redux-devtools-extension": "^2.13.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,13 +38,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "yarn build && firebase deploy",
-    "prettier": "prettier --single-quote --trailing-comma all --no-config --write \"src/**/*.{js,json,css}\"",
+    "prettier":
+      "prettier --single-quote --trailing-comma all --no-config --write \"src/**/*.{js,json,css}\"",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css}": [
-      "yarn prettier",
-      "git add"
-    ]
+    "*.{js,json,css}": ["yarn prettier", "git add"]
   }
 }

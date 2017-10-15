@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -8,8 +9,6 @@ import reducer from './modules';
 
 export const history = createHistory();
 
-export default createStore(
-  reducer,
-  {},
-  applyMiddleware(routerMiddleware(history), thunk),
-);
+const middleware = applyMiddleware(routerMiddleware(history), thunk, logger);
+
+export default createStore(reducer, composeWithDevTools(middleware));
