@@ -16,7 +16,7 @@
         * [ ] MVP: All online users in same group
     * [ ] Expando to fetch comments
 * [ ] Visual enhancements
-    * [ ] Drag and drop for background image
+    * [x] Drag and drop for background image
     * [ ] Store most recent picture per user in Firestore as blob
 * [ ] CRUD
     * [ ] Smart saving
