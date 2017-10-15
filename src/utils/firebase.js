@@ -2,8 +2,8 @@ export const fireToArray = snapshot => {
   const returnArr = [];
 
   snapshot.forEach(child => {
-    const item = child.val();
-    item.key = child.key;
+    const item = child.data();
+    item.id = child.id;
     returnArr.push(item);
   });
 
