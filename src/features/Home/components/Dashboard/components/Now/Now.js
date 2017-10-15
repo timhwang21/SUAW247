@@ -33,7 +33,7 @@ class Now extends Component {
 
     return (
       <Panel id="Now">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <Field
             name="goal"
             label="Goal"
