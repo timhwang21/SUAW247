@@ -4,8 +4,8 @@
 
 ## TODO
 
-* [ ] Now
-    * [ ] Form
+* [x] Now
+    * [x] Form
 * [ ] Today
     * [ ] Grid view of past form data
     * [ ] Expando to fetch comments
@@ -18,4 +18,7 @@
 * [ ] Visual enhancements
     * [ ] Drag and drop for background image
     * [ ] Store most recent picture per user in Firestore as blob
-
+* [ ] CRUD
+    * [ ] Smart saving
+        * Always be aware of most recent entry
+        * If most recent entry `created_at` is before `state.nextCutoff`, update instead of create
