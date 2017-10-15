@@ -17,7 +17,7 @@ class Button extends Component {
     submit: bool,
     disabled: bool,
     id: string,
-    onClick: func.isRequired,
+    onClick: func,
     onMouseEnter: func,
   };
 

@@ -3,65 +3,58 @@ import { func } from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import * as screenfull from 'screenfull';
 
 import Header from './features/Header';
 import Home from './features/Home';
 import NotFound from './features/NotFound';
 
-import firebase from './firebase';
 import { Route404 } from './components/routes';
 import { setTime } from './modules/clock';
-import { setFullscreen } from './modules/fullscreen';
+import { initializeFullscreen } from './modules/fullscreen';
 import { sendNotification } from './modules/notification';
-import { login, logout } from './modules/user';
+import { initializeAuth } from './modules/user';
 
 import './App.css';
 
 const mapDispatchToProps = {
-  login,
-  logout,
   sendNotification,
-  setFullscreen,
+  initializeAuth,
+  initializeFullscreen,
   setTime,
 };
 
 class App extends Component {
   static propTypes = {
-    login: func,
-    logout: func,
     sendNotification: func,
-    setFullscreen: func,
+    initializeAuth: func,
+    initializeFullscreen: func,
     setTime: func,
   };
 
   componentDidMount() {
-    const { setFullscreen, setTime, sendNotification } = this.props;
+    const {
+      initializeAuth,
+      initializeFullscreen,
+      setTime,
+      sendNotification,
+    } = this.props;
 
     // Set up global clock
     this.interval = setInterval(setTime, 1000);
 
     // Set up Firebase callback
-    firebase.auth().onAuthStateChanged(this.handleAuthStateChanged);
+    initializeAuth();
+
+    // Set up fullscreen check
+    initializeFullscreen();
 
     // Request initial notification permission
     sendNotification('Shut up and start writing!');
-
-    // Set up fullscreen check
-    if (screenfull.enabled) {
-      screenfull.on('change', () => setFullscreen(screenfull.isFullscreen));
-    }
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-
-  handleAuthStateChanged = user => {
-    const { login, logout } = this.props;
-
-    user ? login(user) : logout();
-  };
 
   render() {
     return (

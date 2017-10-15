@@ -1,6 +1,6 @@
 import pick from 'lodash/fp/pick';
 
-import { FirebaseActions } from '../firebase';
+import firebase, { FirebaseActions } from '../firebase';
 
 const getUserProperties = pick([
   'displayName',
@@ -33,6 +33,17 @@ export const deleteAccount = () => dispatch => {
 
   dispatch({
     type: DELETE_ACCOUNT,
+  });
+};
+
+export const INITIALIZE_AUTH = 'user/INITIALIZE_AUTH';
+export const initializeAuth = () => dispatch => {
+  firebase
+    .auth()
+    .onAuthStateChanged(user => dispatch(user ? login(user) : logout()));
+
+  dispatch({
+    type: INITIALIZE_AUTH,
   });
 };
 

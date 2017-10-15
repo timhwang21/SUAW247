@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { string, number, func } from 'prop-types';
+import { oneOfType, string, number, func } from 'prop-types';
 import classnames from 'classnames';
 import range from 'lodash/range';
 
@@ -13,7 +13,7 @@ class Scale extends Component {
   static propTypes = {
     className: string,
     count: number,
-    value: number,
+    value: oneOfType([number, string]),
     onChange: func,
   };
 

@@ -1,5 +1,18 @@
 import * as screenfull from 'screenfull';
 
+export const INITIALIZE_FULLSCREEN = 'notification/INITIALIZE_FULLSCREEN';
+export const initializeFullscreen = () => dispatch => {
+  if (screenfull.enabled) {
+    screenfull.on('change', () =>
+      dispatch(setFullscreen(screenfull.isFullscreen)),
+    );
+  }
+
+  dispatch({
+    type: INITIALIZE_FULLSCREEN,
+  });
+};
+
 export const TOGGLE_FULLSCREEN = 'notification/TOGGLE_FULLSCREEN';
 export const toggleFullscreen = () => dispatch => {
   if (screenfull.enabled) {
