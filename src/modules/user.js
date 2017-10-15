@@ -7,7 +7,7 @@ const getUserProperties = pick([
   'email',
   'emailVerified',
   'isAnonymous',
-  'photoUrl',
+  'photoURL',
   'refreshToken',
   'uid',
 ]);
