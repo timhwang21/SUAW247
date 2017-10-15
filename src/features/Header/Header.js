@@ -53,7 +53,11 @@ class Header extends Component {
     const { user } = this.props;
 
     return [
-      <HeaderClock key="clock" className="Header-text" />,
+      <Mobile key="clock">
+        {match => (
+          <HeaderClock key="clock" className="Header-text" hidden={match} />
+        )}
+      </Mobile>,
       user && (
         <Link className="Header-text" key="user" to="">
           <Image

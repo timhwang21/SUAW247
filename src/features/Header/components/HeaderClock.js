@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { string } from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
+import { hidable } from '../../../components/decorators';
 import { getCurrentTime } from '../../../modules/clock';
 
 import './HeaderClock.css';
@@ -37,4 +39,4 @@ class HeaderClock extends Component {
   }
 }
 
-export default connect(mapStateToProps)(HeaderClock);
+export default compose(connect(mapStateToProps), hidable)(HeaderClock);
