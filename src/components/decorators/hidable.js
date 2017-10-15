@@ -8,7 +8,7 @@ export default C => {
     hidden: bool,
   };
 
-  CC.displayName = 'Hidable.' + C.displayName;
+  CC.displayName = 'Hidable.' + (C.displayName || C.name);
 
   return CC;
 };

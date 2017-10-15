@@ -44,7 +44,7 @@ export default C => {
     large: bool,
   };
 
-  CC.displayName = 'FormControl.' + C.displayName;
+  CC.displayName = 'FormControl.' + (C.displayName || C.name);
 
   return CC;
 };
