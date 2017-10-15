@@ -8,26 +8,33 @@ import {
 
 import { sendNotification } from './notification';
 
-function calcTime() {
+function calcTime(prevTime = {}) {
   const now = new Date();
-  const nextHour = endOfHour(now);
-  const nextHalfHour = addMinutes(nextHour, -30);
-  const isFirstHalfHour = isBefore(now, nextHalfHour);
 
-  const totalSeconds = differenceInSeconds(
-    isFirstHalfHour ? nextHalfHour : nextHour,
-    now,
-  );
+  // Lazily calculate nextCutoff
+  let nextCutoff;
+
+  if (prevTime.nextCutoff && isBefore(now, prevTime.nextCutoff)) {
+    nextCutoff = prevTime.nextCutoff;
+  } else {
+    const nextHour = endOfHour(now);
+    const nextHalfHour = addMinutes(nextHour, -30);
+    const isFirstHalfHour = isBefore(now, nextHalfHour);
+    nextCutoff = isFirstHalfHour ? nextHalfHour : nextHour;
+  }
+
+  const totalSeconds = differenceInSeconds(nextCutoff, now);
 
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
 
-  return { totalSeconds, minutes, seconds, currentTime: now };
+  return { totalSeconds, minutes, seconds, currentTime: now, nextCutoff };
 }
 
 export const SET_TIME = 'clock/SET_TIME';
-export const setTime = () => dispatch => {
-  const time = calcTime();
+export const setTime = () => (dispatch, getState) => {
+  const prevTime = getTime(getState());
+  const time = calcTime(prevTime);
 
   const { minutes, seconds } = time;
 
