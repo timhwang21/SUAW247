@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, Form } from 'redux-form';
 
 import { postShape } from '../../../../../../propTypes';
+import { getBreakEnding } from '../../../../../../modules/clock';
 import {
   createPost,
   updatePost,
@@ -25,6 +26,7 @@ const config = {
 
 const mapStateToProps = state => ({
   activePost: getActivePost(state),
+  breakEnding: getBreakEnding(state),
 });
 
 const mapDispatchToProps = {
@@ -42,13 +44,24 @@ const mergeProps = ({ activePost }, dispatchProps, ownProps) => ({
 class Now extends Component {
   static propTypes = {
     activePost: postShape,
-    handleSubmit: func,
+    breakEnding: bool,
     createPost: func,
-    updatePost: func,
+    handleSubmit: func,
     pristine: bool,
-    submitting: bool,
+    submit: func,
     submitSucceeded: bool,
+    submitting: bool,
+    updatePost: func,
+    valid: bool,
   };
+
+  componentWillReceiveProps(nextProps) {
+    const { activePost, breakEnding, valid, submit } = this.props;
+
+    // If break is about to end, there is no active post, and the current form
+    // values are valid, submit the form for the user
+    !breakEnding && nextProps.breakEnding && valid && !activePost && submit();
+  }
 
   onSubmit = values => {
     const { activePost, updatePost, createPost } = this.props;
@@ -67,7 +80,7 @@ class Now extends Component {
 
     return (
       <Panel id="Now">
-        <form onSubmit={handleSubmit(this.onSubmit)} autoComplete="off">
+        <Form onSubmit={handleSubmit(this.onSubmit)} autoComplete="off">
           <Field
             name="goal"
             label="Goal"
@@ -96,7 +109,7 @@ class Now extends Component {
             submitSucceeded={submitSucceeded}
             update={!!activePost}
           />
-        </form>
+        </Form>
       </Panel>
     );
   }

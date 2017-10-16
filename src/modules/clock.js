@@ -57,6 +57,7 @@ export const getCurrentTime = state =>
 export const getTime = state => state.clock;
 export const getNextCutoff = state => state.clock.nextCutoff;
 export const getIsBreak = state => state.clock.minutes < 5;
+export const getBreakEnding = state => state.clock.minutes < 1;
 
 const initialState = calcTime();
 

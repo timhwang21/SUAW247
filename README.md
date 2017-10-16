@@ -11,22 +11,26 @@
     * [ ] Expando to fetch comments
 * [ ] Week
     * [ ] Visualizations
-* [ ] Group
+* [ ] Sessions
     * [ ] Grid view of most recent form data for all group members
         * [ ] MVP: All online users in same group
     * [ ] Expando to fetch comments
 * [ ] Visual enhancements
     * [x] Drag and drop for background image
-    * [ ] Store most recent picture per user in Firestore as blob
 * [ ] CRUD
-    * [ ] Smart saving
-        * Always be aware of most recent entry
-        * If most recent entry `created_at` is before `state.nextCutoff`, update instead of create
-    * [ ] Fetching posts
-        * Posts should belong to a user and a session
-        * Supported operations:
-            * Fetch all posts from a user
-            * Fetch most recent post from a user (for smart saving)
-            * Fetch all posts from a session
-        * Index on: user, session
-        * MVP: User operations only
+    * [ ] Posts
+        * [x] Smart saving
+            * Always be aware of most recent entry
+            * If most recent entry `created_at` is before `state.nextCutoff`, update instead of create
+            * If user has a valid post, break is about to end, and there is no active post, help user save their work
+        * [x] Fetching posts
+            * Can fetch all posts from a user
+            * Can fetch most recent post from a user (for smart saving)
+* [ ] Future Goals
+    * [ ] Sessions
+        * Sessions can have many users
+        * Posts should also belong to a session
+        * Can fetch all posts from a session
+        * "Scoreboard" display for all session members after every session
+    * [ ] User
+        * [ ] Store most recent background in DB (TODO: good UX to delete background image)
