@@ -6,7 +6,13 @@ import {
   format,
 } from 'date-fns';
 
+import work_start_mp3 from '../static/audio/work_start.mp3';
+import break_start_mp3 from '../static/audio/break_start.mp3';
+
 import { sendNotification } from './notification';
+
+const workStart = new Audio(work_start_mp3);
+const breakStart = new Audio(break_start_mp3);
 
 function calcTime(prevTime = {}) {
   const now = new Date();
@@ -44,11 +50,11 @@ export const setTime = () => (dispatch, getState) => {
   });
 
   if (minutes === 5 && !seconds) {
-    dispatch(sendNotification('Break time!'));
+    dispatch(sendNotification('Break time!', null, breakStart));
   }
 
   if (!minutes && !seconds) {
-    dispatch(sendNotification('Time to start working again!'));
+    dispatch(sendNotification('Time to start working again!', null, workStart));
   }
 };
 

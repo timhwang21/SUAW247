@@ -39,3 +39,7 @@
         * "Scoreboard" display for all session members after every session
     * [ ] User
         * [ ] Store most recent background in DB (TODO: good UX to delete background image)
+
+## Credits
+
+* Notification sounds from [FoolBoyMedia](https://freesound.org/people/FoolBoyMedia)
