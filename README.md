@@ -17,6 +17,11 @@
     * [ ] Expando to fetch comments
 * [ ] Visual enhancements
     * [x] Drag and drop for background image
+    * [ ] Show spinner before user authentication (or all listeners)
+* [ ] User settings
+    * [ ] Option to enable / disable alert notifications
+    * [ ] Option to enable / disable notification sounds
+    * [ ] Option to remove current background image
 * [ ] CRUD
     * [ ] Posts
         * [x] Smart saving
