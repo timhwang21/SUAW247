@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { oneOfType, string, number, func } from 'prop-types';
+import { oneOfType, string, number, bool, func } from 'prop-types';
 import classnames from 'classnames';
 import range from 'lodash/range';
 
@@ -13,6 +13,7 @@ class Scale extends Component {
   static propTypes = {
     className: string,
     count: number,
+    disabled: bool,
     value: oneOfType([number, string]),
     onChange: func,
   };
@@ -25,22 +26,43 @@ class Scale extends Component {
     hoverIdx: null,
   };
 
-  handleMouseEnter = hoverIdx => this.setState({ hoverIdx });
+  handleMouseEnter = hoverIdx => {
+    const { disabled } = this.props;
 
-  handleMouseLeave = () => this.setState({ hoverIdx: null });
+    if (disabled) {
+      return;
+    }
+
+    this.setState({ hoverIdx });
+  };
+
+  handleMouseLeave = () => {
+    const { disabled } = this.props;
+
+    if (disabled) {
+      return;
+    }
+
+    this.setState({ hoverIdx: null });
+  };
 
   handleChange = newValue => {
-    const { onChange, value } = this.props;
+    const { disabled, onChange, value } = this.props;
+
+    if (disabled) {
+      return;
+    }
 
     onChange(value === newValue ? null : newValue);
   };
 
   get className() {
-    const { className, value } = this.props;
+    const { className, disabled, value } = this.props;
 
     return classnames({
       Scale: true,
       [className]: className,
+      disabled,
       'has-value': value,
     });
   }

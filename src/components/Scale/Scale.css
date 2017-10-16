@@ -1,4 +1,9 @@
 .Scale {
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.Scale.disabled {
+  cursor: initial;
 }
