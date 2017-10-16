@@ -5,6 +5,7 @@ import { postShape } from '../../../../../../propTypes';
 import { getPosts } from '../../../../../../modules/posts';
 
 import { Panel } from '../../../../../../components/layout';
+import Scale from '../../../../../../components/Scale';
 
 import './Today.css';
 
@@ -32,11 +33,11 @@ class Today extends Component {
         </div>
         <div>
           <b>Focus</b>
-          <div>{post.focus}</div>
+          <Scale value={post.focus} disabled />
         </div>
         <div>
           <b>Productivity</b>
-          <div>{post.productivity}</div>
+          <Scale value={post.productivity} disabled />
         </div>
       </div>
     ));

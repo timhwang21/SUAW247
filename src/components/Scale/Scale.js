@@ -85,7 +85,13 @@ class Scale extends Component {
   }
 
   render() {
-    return <div className={this.className}>{this.renderItems()}</div>;
+    const { value } = this.props;
+
+    return (
+      <div className={this.className} title={value}>
+        {this.renderItems()}
+      </div>
+    );
   }
 }
 
