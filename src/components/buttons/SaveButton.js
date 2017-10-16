@@ -7,6 +7,8 @@ import Button from './Button';
 class SaveButton extends Component {
   static propTypes = {
     className: string,
+    update: bool,
+    pristine: bool,
     submitting: bool,
     submitSucceeded: bool,
     onMouseEnter: func,
@@ -21,12 +23,11 @@ class SaveButton extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { submitting } = this.props;
+    const { submitSucceeded } = this.props;
 
-    const submitFinished = submitting && !nextProps.submitting;
-    const success = nextProps.submitSucceeded;
+    const success = !submitSucceeded && nextProps.submitSucceeded;
 
-    if (submitFinished && success) {
+    if (success) {
       this.setSuccess();
     }
   }
@@ -45,16 +46,12 @@ class SaveButton extends Component {
   };
 
   get label() {
-    const { submitting } = this.props;
+    const { update } = this.props;
     const { success } = this.state;
 
-    if (submitting) {
-      return 'Saving...';
-    } else if (success) {
-      return 'Saved!';
-    } else {
-      return 'Save';
-    }
+    const text = update ? 'Update' : 'Save';
+
+    return success ? 'Saved!' : text;
   }
 
   get buttonProps() {
@@ -62,14 +59,14 @@ class SaveButton extends Component {
   }
 
   render() {
-    const { className, submitting } = this.props;
+    const { pristine, className, submitting } = this.props;
 
     return (
       <Button
         {...this.buttonProps}
         submit
         className={className}
-        disabled={submitting}
+        disabled={pristine || submitting}
         onMouseEnter={this.handleMouseEnter}
       >
         {this.label}
