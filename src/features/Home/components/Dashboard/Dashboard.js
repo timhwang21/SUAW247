@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import { getIsBreak } from '../../../../modules/clock';
+// import { getIsBreak } from '../../../../modules/clock';
 import { LogInPage } from '../../../../components/auth';
 import { AuthenticatedRoute } from '../../../../components/routes';
 import { Panel, NavBar } from '../../../../components/layout';
@@ -16,8 +16,9 @@ import Week from './components/Week';
 
 import './Dashboard.css';
 
-const mapStateToProps = state => ({
-  isBreak: getIsBreak(state),
+const mapStateToProps = () => ({
+  isBreak: true,
+  // isBreak: getIsBreak(state),
 });
 
 const Dashboard = ({ isBreak }) => (
