@@ -12,6 +12,7 @@
   height: 150px;
   align-items: center;
   transition-duration: 0.5s;
+  background-size: cover;
   background-position: center;
 }
 
