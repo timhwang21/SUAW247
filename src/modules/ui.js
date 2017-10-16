@@ -16,7 +16,7 @@ export const toggleBody = () => ({
 export const isBodyHidden = state => state.ui.bodyHidden;
 
 const initialState = {
-  bodyHidden: true,
+  bodyHidden: false,
 };
 
 export default (state = initialState, { type }) => {

@@ -7,12 +7,7 @@ import Clock from '../../components/Clock';
 import Dropzone from '../../components/Dropzone';
 import { Button } from '../../components/buttons';
 import { Chevron } from '../../components/icons';
-import {
-  isBodyHidden,
-  openBody,
-  closeBody,
-  toggleBody,
-} from '../../modules/ui';
+import { isBodyHidden, toggleBody } from '../../modules/ui';
 
 import Dashboard from './components/Dashboard';
 import Social from './components/Social';
@@ -24,8 +19,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  openBody,
-  closeBody,
   toggleBody,
 };
 
@@ -33,25 +26,12 @@ class Home extends Component {
   static propTypes = {
     match: object,
     bodyHidden: bool,
-    openBody: func,
     toggleBody: func,
   };
 
   state = {
     background: null,
   };
-
-  componentWillMount() {
-    const { openBody } = this.props;
-
-    this.atNestedRoute && openBody();
-  }
-
-  get atNestedRoute() {
-    const { match } = this.props;
-
-    return match.params.view && match.params.view !== 'login';
-  }
 
   setBackground = image => this.setState({ background: image[0].preview });
 
