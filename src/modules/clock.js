@@ -50,12 +50,12 @@ export const setTime = () => (dispatch, getState) => {
   });
 
   if (minutes === 5 && !seconds) {
-    dispatch(sendNotification('Break time!', undefined, breakStart));
+    dispatch(sendNotification('Break time!', 'Fill out your accomplishments!', breakStart));
   }
 
   if (!minutes && !seconds) {
     dispatch(
-      sendNotification('Time to start working again!', undefined, workStart),
+      sendNotification('Time to start working again!', 'Pick a goal to focus on.', workStart),
     );
   }
 };
