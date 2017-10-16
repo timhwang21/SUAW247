@@ -50,11 +50,13 @@ export const setTime = () => (dispatch, getState) => {
   });
 
   if (minutes === 5 && !seconds) {
-    dispatch(sendNotification('Break time!', null, breakStart));
+    dispatch(sendNotification('Break time!', undefined, breakStart));
   }
 
   if (!minutes && !seconds) {
-    dispatch(sendNotification('Time to start working again!', null, workStart));
+    dispatch(
+      sendNotification('Time to start working again!', undefined, workStart),
+    );
   }
 };
 
