@@ -31,9 +31,11 @@ Current features:
     * [x] Drag and drop for background image
     * [ ] Show spinner before user authentication (or all listeners)
 * [ ] User settings
-    * [ ] Option to enable / disable alert notifications
-    * [ ] Option to enable / disable notification sounds
-    * [ ] Option to remove current background image
+    * [ ] Enable / disable alert notifications
+    * [ ] Enable / disable notification sounds
+    * [ ] Remove current background image
+    * [ ] Close on form save
+    * [ ] Open on alert
 * [ ] CRUD
     * [ ] Posts
         * [x] Smart saving
