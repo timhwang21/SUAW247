@@ -1,6 +1,18 @@
-# Placeholder
+# Shut Up & Write 24/7
 
-[**Live Demo**](https://shutupandwrite247.firebaseapp.com/)
+### [Live Demo](https://shutupandwrite247.firebaseapp.com/)
+
+![Screenshot](./public/screenshots/demo.png)
+
+Collaborative pomodoro timer app.
+
+Current features:
+* Alternates between 25 minute work sessions and 5 minute break sessions
+* Self-evaluate your productivity per session
+* Multiple authentication providers
+* Real-time data fetching
+* Global notification system
+* Full screen mode (drag-and-drop your own background image)
 
 ## TODO
 
