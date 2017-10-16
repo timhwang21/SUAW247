@@ -17,3 +17,9 @@
   border-bottom: 2px solid #66c0f6;
   font-weight: 600;
 }
+
+.NavLink.disabled {
+  border-bottom: 2px solid transparent;
+  color: #808080;
+  cursor: not-allowed;
+}
