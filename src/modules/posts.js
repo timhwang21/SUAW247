@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
-import { isAfter, subMinutes } from 'date-fns';
+import { format, isAfter, subMinutes } from 'date-fns';
+import reverse from 'lodash/fp/reverse';
 
 import { db, timestamp } from '../firebase';
 import { fireToArray } from '../utils/firebase';
@@ -109,6 +110,9 @@ const initialState = {
 export const isPostsLoading = state => !!state.posts.loading;
 export const getPosts = state => state.posts.posts;
 export const getLatestPost = state => state.posts.posts[0];
+
+const getListener = state => state.posts.listener;
+
 export const getActivePost = createSelector(
   [getLatestPost, getNextCutoff],
   (post, cutoff) => {
@@ -121,7 +125,18 @@ export const getActivePost = createSelector(
     return isAfter(post.created_at, cutoffStart) ? post : null;
   },
 );
-const getListener = state => state.posts.listener;
+
+// TODO: Add session time, and fill in gaps between empty times
+// Selector to reduce posts to objects keyed by session time, and
+// map over 48 possible times?
+export const getProcessedPosts = createSelector([getPosts], posts =>
+  reverse(posts).map((post, idx) => ({
+    ...post,
+    session: idx,
+    created_at: format(post.created_at, 'hh:mm:ss'),
+    updated_at: format(post.updated_at, 'hh:mm:ss'),
+  })),
+);
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {

@@ -2,7 +2,7 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 
 /* eslint-disable react/prop-types */
-export const Desktop = ({ children }) => (
+export const Default = ({ children }) => (
   <MediaQuery minWidth={992}>{children}</MediaQuery>
 );
 export const Tablet = ({ children }) => (
@@ -12,7 +12,4 @@ export const Tablet = ({ children }) => (
 );
 export const Mobile = ({ children }) => (
   <MediaQuery maxWidth={768}>{children}</MediaQuery>
-);
-export const Default = ({ children }) => (
-  <MediaQuery minWidth={768}>{children}</MediaQuery>
 );
