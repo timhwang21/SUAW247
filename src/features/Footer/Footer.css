@@ -1,0 +1,26 @@
+#Footer {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  height: 50px;
+  padding: 0 10px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.Footer-center {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.Footer-text {
+  color: white;
+}
+
+.Footer-text-small {
+  font-size: 12px;
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -47,7 +47,7 @@ const mapDispatchToProps = {
   toggleFullscreen,
 };
 
-class Header extends Component {
+class Header extends PureComponent {
   static propTypes = {
     user: userShape,
     canFullscreen: bool,
