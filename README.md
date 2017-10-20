@@ -39,7 +39,6 @@ Current features:
     * [ ] Open on alert
 * [ ] Polyfills
     * [ ] Apparently `Audio` doesn't work on Safari
-    * [ ] Apparently `Notification` doesn't work on Windows Chrome
 
 ### Data
 
