@@ -6,6 +6,7 @@
   padding: 0 10px;
   color: white;
   flex-shrink: 0;
+  letter-spacing: 3px;
 }
 
 .Header-left,
@@ -34,7 +35,6 @@
 .Header-center {
   flex-grow: 4;
   text-transform: uppercase;
-  letter-spacing: 3px;
 }
 
 .Header-text {
