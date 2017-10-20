@@ -8,7 +8,7 @@ import { getUser } from '../../modules/user';
 import userPlaceholder from '../../static/images/user_placeholder.png';
 import Image from '../../components/Image';
 import { Link } from '../../components/links';
-import { Mobile } from '../../components/responsive';
+import { Mobile, Default } from '../../components/responsive';
 import { LogIn, LogOut } from '../../components/auth';
 import { Button } from '../../components/buttons';
 import { Expand } from '../../components/icons';
@@ -69,11 +69,9 @@ class Header extends Component {
     const { user } = this.props;
 
     return [
-      <Mobile key="clock">
-        {match => (
-          <HeaderClock key="clock" className="Header-text" hidden={match} />
-        )}
-      </Mobile>,
+      <Default key="clock">
+        <HeaderClock key="clock" className="Header-text" />
+      </Default>,
       user && (
         <Link className="Header-text" key="user" to="">
           <Image
@@ -88,15 +86,14 @@ class Header extends Component {
     ];
   }
 
-  renderHeaderText = match => (match ? smallHeader : largeHeader);
-
   render() {
     return (
       <div id="Header">
         <div className="Header-left">{this.renderHeaderLeft()}</div>
         <div className="Header-center">
           <Link to="/" className="Header-text">
-            <Mobile>{this.renderHeaderText}</Mobile>
+            <Mobile>{smallHeader}</Mobile>
+            <Default>{largeHeader}</Default>
           </Link>
         </div>
         <div className="Header-right">{this.renderHeaderRight()}</div>

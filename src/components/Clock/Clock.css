@@ -23,12 +23,6 @@
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  #clock .clock-message {
-    display: none;
-  }
-}
-
 #clock.large .clock-time {
   width: 400px;
 }

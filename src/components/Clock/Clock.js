@@ -9,6 +9,7 @@ import dimensions from 'react-dimensions';
 import { getTime, getIsBreak } from '../../modules/clock';
 import { timeShape } from '../../propTypes';
 import ProgressBar from '../ProgressBar';
+import { Default } from '../responsive';
 
 import './Clock.css';
 
@@ -79,7 +80,9 @@ class Clock extends Component {
           vertical={this.isVertical}
         />
         <div className="clock-time clock-text">{time}</div>
-        <div className="clock-message clock-text">{message}</div>
+        <Default>
+          <div className="clock-text">{message}</div>
+        </Default>
       </div>
     );
   }
