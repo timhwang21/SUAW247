@@ -6,6 +6,12 @@
   padding: 20px 40px;
 }
 
+@media (max-width: 768px) {
+  .Panel {
+    padding: 20px;
+  }
+}
+
 .Panel.with-nav {
   padding: 0;
 }
