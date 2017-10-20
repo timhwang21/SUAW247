@@ -23,6 +23,7 @@ const columns = [
   {
     Header: '#',
     accessor: 'session',
+    className: 'rt-centered',
     width: 35,
   },
   {
@@ -41,12 +42,14 @@ const columns = [
     Header: 'Focus',
     accessor: 'focus',
     Cell: ScaleCell,
+    className: 'rt-centered',
     width: 100,
   },
   {
     Header: 'Productivity',
     accessor: 'productivity',
     Cell: ScaleCell,
+    className: 'rt-centered',
     width: 100,
   },
 ];

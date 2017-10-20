@@ -1,3 +1,9 @@
 .ReactTable > .rt-noData {
   pointer-events: initial;
 }
+
+.ReactTable .rt-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
