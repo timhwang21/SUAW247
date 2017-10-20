@@ -6,7 +6,7 @@ export default shape({
   created_at: string,
   updated_at: string,
   goal: string.isRequired,
-  accomplishment: string.isRequired,
-  productivity: number.isRequired,
-  focus: number.isRequired,
+  accomplishment: string,
+  productivity: number,
+  focus: number,
 });
