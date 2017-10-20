@@ -108,6 +108,7 @@ const initialState = {
 
 export const isPostsLoading = state => !!state.posts.loading;
 export const getPosts = state => state.posts.posts;
+export const getPostCount = state => state.posts.posts.length;
 export const getLatestPost = state => state.posts.posts[0];
 
 const getListener = state => state.posts.listener;

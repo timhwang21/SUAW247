@@ -1,11 +1,13 @@
 import React from 'react';
 import { oneOfType, string, node } from 'prop-types';
 
+import Title from './Title';
+
 import './Message.css';
 
 const Message = ({ title, children }) => (
   <div className="Message">
-    <div className="Message-title">{title}</div>
+    <Title>{title}</Title>
     {children}
   </div>
 );

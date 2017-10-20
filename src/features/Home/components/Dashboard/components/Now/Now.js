@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { bool, func } from 'prop-types';
+import { bool, func, number } from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm, Form } from 'redux-form';
@@ -10,6 +10,7 @@ import { getBreakEnding } from '../../../../../../modules/clock';
 import {
   createPost,
   updatePost,
+  getPostCount,
   getActivePost,
 } from '../../../../../../modules/posts';
 import { Panel, Row } from '../../../../../../components/layout';
@@ -29,9 +30,10 @@ const mapStateToProps = state => {
   const activePost = getActivePost(state);
 
   return {
-    hasActivePost: !isEmpty(activePost),
     breakEnding: getBreakEnding(state),
+    hasActivePost: !isEmpty(activePost),
     initialValues: activePost,
+    postCount: getPostCount(state),
   };
 };
 
@@ -47,6 +49,7 @@ class Now extends Component {
     handleSubmit: func,
     hasActivePost: bool,
     initialValues: postShape,
+    postCount: number,
     pristine: bool,
     submit: func,
     submitSucceeded: bool,
@@ -67,6 +70,12 @@ class Now extends Component {
       submit();
   }
 
+  get title() {
+    const { postCount } = this.props;
+
+    return `Session #${postCount + 1}`;
+  }
+
   onSubmit = values => {
     const { hasActivePost, updatePost, createPost } = this.props;
 
@@ -83,7 +92,7 @@ class Now extends Component {
     } = this.props;
 
     return (
-      <Panel id="Now">
+      <Panel id="Now" title={this.title}>
         <Form onSubmit={handleSubmit(this.onSubmit)} autoComplete="off">
           <Field
             name="goal"
