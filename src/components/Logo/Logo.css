@@ -1,1 +1,16 @@
+.Logo .Logo-write {
+  font-family: 'Gloss And Bloom';
+  text-transform: none;
+}
 
+.Logo-small {
+  display: flex;
+  align-items: center;
+}
+
+.Logo-small .Logo-number {
+  font-size: 12px;
+  margin-left: -2px;
+  letter-spacing: 2px;
+  padding-top: 8px;
+}

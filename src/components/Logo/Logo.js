@@ -4,17 +4,17 @@ import { bool } from 'prop-types';
 import './Logo.css';
 
 const smallHeader = (
-  <div>
+  <div className="Logo Logo-small">
     <span>SUA</span>
-    <span id="Write">W</span>
-    <span>247</span>
+    <span className="Logo-write">W</span>
+    <span className="Logo-number">24/7</span>
   </div>
 );
 
 const largeHeader = (
-  <div>
+  <div className="Logo">
     <span>{'Shut Up & '}</span>
-    <span id="Write">Write</span>
+    <span className="Logo-write">Write</span>
     <span>{' 24/7'}</span>
   </div>
 );

@@ -8,11 +8,6 @@
   flex-shrink: 0;
 }
 
-#Write {
-  font-family: 'Gloss And Bloom';
-  text-transform: none;
-}
-
 .Header-left,
 .Header-right {
   min-width: 250px;
