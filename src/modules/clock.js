@@ -1,5 +1,6 @@
 import {
-  addMinutes,
+  addSeconds,
+  subMinutes,
   differenceInSeconds,
   endOfHour,
   isBefore,
@@ -23,8 +24,8 @@ function calcTime(prevTime = {}) {
   if (prevTime.nextCutoff && isBefore(now, prevTime.nextCutoff)) {
     nextCutoff = prevTime.nextCutoff;
   } else {
-    const nextHour = endOfHour(now);
-    const nextHalfHour = addMinutes(nextHour, -30);
+    const nextHour = addSeconds(endOfHour(now), 1);
+    const nextHalfHour = subMinutes(nextHour, 30);
     const isFirstHalfHour = isBefore(now, nextHalfHour);
     nextCutoff = isFirstHalfHour ? nextHalfHour : nextHour;
   }
