@@ -72,7 +72,7 @@ export const setTime = () => (dispatch, getState) => {
 };
 
 export const getCurrentTime = state =>
-  format(state.clock.currentTime, 'hh:mm:ss');
+  format(state.clock.currentTime, 'hh:mm:ss A');
 export const getTime = state => state.clock;
 export const getNextCutoff = state => state.clock.nextCutoff;
 export const getIsBreak = state => state.clock.minutes < 5;

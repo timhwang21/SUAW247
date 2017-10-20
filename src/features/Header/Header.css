@@ -15,7 +15,7 @@
 
 .Header-left,
 .Header-right {
-  min-width: 225px;
+  min-width: 250px;
   display: flex;
   flex: 1 0 0;
   align-items: center;
