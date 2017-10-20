@@ -21,8 +21,10 @@ Current features:
 * [x] Now
     * [x] Form
 * [ ] Today
-    * [ ] Grid view of past form data
+    * [x] Grid view of past form data
     * [ ] Expando to fetch comments
+    * [ ] Endpoint: fetch by day, pagination sends a fetch
+    * [ ] Mobile: list / card based layout (material design)
 * [ ] Week
     * [ ] Visualizations
 * [ ] Sessions
