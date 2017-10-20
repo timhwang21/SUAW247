@@ -131,7 +131,7 @@ export const getActivePost = createSelector(
 export const getProcessedPosts = createSelector([getPosts], posts =>
   posts.map((post, idx) => ({
     ...post,
-    session: idx,
+    session: posts.length - idx,
     created_at: format(post.created_at, 'hh:mm:ss'),
     updated_at: format(post.updated_at, 'hh:mm:ss'),
   })),

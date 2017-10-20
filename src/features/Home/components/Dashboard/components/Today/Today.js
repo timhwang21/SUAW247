@@ -46,7 +46,7 @@ const columns = [
 const defaultSorted = [
   {
     id: 'session',
-    desc: false,
+    desc: true,
   },
 ];
 
