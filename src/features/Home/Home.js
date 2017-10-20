@@ -54,7 +54,7 @@ class Home extends Component {
             disableClick
             onDropAccepted={this.setBackground}
           >
-            <Clock large={bodyHidden} />
+            <Clock large={bodyHidden} onDoubleClick={toggleBody} />
           </Dropzone>
           <Button className="Home-toggle" onClick={toggleBody} fullWidth>
             <Chevron up={bodyHidden} down={!bodyHidden} />

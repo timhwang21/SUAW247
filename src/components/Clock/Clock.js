@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { bool, number } from 'prop-types';
+import { bool, number, func } from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -35,6 +35,7 @@ class Clock extends Component {
     large: bool,
     containerHeight: number,
     containerWidth: number,
+    onDoubleClick: func,
   };
 
   get timeMessage() {
@@ -68,20 +69,24 @@ class Clock extends Component {
   }
 
   render() {
-    const { isBreak, large } = this.props;
+    const { isBreak, large, onDoubleClick } = this.props;
 
     const { time, message } = this.timeMessage;
 
     return (
-      <div id="clock" className={classnames(large && 'large')}>
+      <div
+        id="clock"
+        className={classnames(large && 'large')}
+        onDoubleClick={onDoubleClick}
+      >
         <ProgressBar
           percent={this.percentTimeLeft}
           red={!isBreak}
           vertical={this.isVertical}
         />
-        <div className="clock-time clock-text">{time}</div>
+        <div className="clock-time clock-text noselect">{time}</div>
         <Default>
-          <div className="clock-text">{message}</div>
+          <div className="clock-text noselect">{message}</div>
         </Default>
       </div>
     );
