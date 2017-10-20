@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import { format, isAfter, subMinutes } from 'date-fns';
-import reverse from 'lodash/fp/reverse';
 
 import { db, timestamp } from '../firebase';
 import { fireToArray } from '../utils/firebase';
@@ -130,7 +129,7 @@ export const getActivePost = createSelector(
 // Selector to reduce posts to objects keyed by session time, and
 // map over 48 possible times?
 export const getProcessedPosts = createSelector([getPosts], posts =>
-  reverse(posts).map((post, idx) => ({
+  posts.map((post, idx) => ({
     ...post,
     session: idx,
     created_at: format(post.created_at, 'hh:mm:ss'),
