@@ -16,6 +16,10 @@ body {
   font-family: 'Avenir Next', Futura, Helvetica, Arial, sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 input {
   /* temporary */
   font-family: 'Avenir Next', Futura, Helvetica, Arial, sans-serif;
