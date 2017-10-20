@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { object, bool, func } from 'prop-types';
 import classnames from 'classnames';
 
-import Clock from '../../components/Clock';
 import Dropzone from '../../components/Dropzone';
 import { Button } from '../../components/buttons';
 import { Chevron } from '../../components/icons';
 import { isBodyHidden, toggleBody } from '../../modules/ui';
 
+import Clock from '../Clock';
 import Dashboard from './components/Dashboard';
 import Social from './components/Social';
 

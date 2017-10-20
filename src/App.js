@@ -8,6 +8,7 @@ import Footer from './features/Footer';
 import Header from './features/Header';
 import Home from './features/Home';
 import NotFound from './features/NotFound';
+import Welcome from './features/Welcome';
 
 import { Route404 } from './components/routes';
 import { setTime } from './modules/clock';
@@ -68,6 +69,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Welcome />
         <Header />
         <Switch>
           <Route exact path="/:view(now|today|week|login)?" component={Home} />

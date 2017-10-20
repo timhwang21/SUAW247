@@ -1,0 +1,25 @@
+#Welcome {
+  align-items: center;
+  background: white;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  transition-duration: 1s;
+  width: 100%;
+  z-index: 3;
+}
+
+#Welcome > * {
+  opacity: 0;
+  transition-duration: 1s;
+}
+
+#Welcome.show-message > * {
+  opacity: 1;
+}
+
+#Welcome.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

@@ -8,8 +8,8 @@ import dimensions from 'react-dimensions';
 
 import { getTime, getIsBreak } from '../../modules/clock';
 import { timeShape } from '../../propTypes';
-import ProgressBar from '../ProgressBar';
-import { Default } from '../responsive';
+import ProgressBar from '../../components/ProgressBar';
+import { Default } from '../../components/responsive';
 
 import './Clock.css';
 

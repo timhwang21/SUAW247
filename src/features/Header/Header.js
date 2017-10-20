@@ -7,6 +7,7 @@ import { getUser } from '../../modules/user';
 
 import userPlaceholder from '../../static/images/user_placeholder.png';
 import Image from '../../components/Image';
+import Logo from '../../components/Logo';
 import { Link } from '../../components/links';
 import { Mobile, Default } from '../../components/responsive';
 import { LogIn, LogOut } from '../../components/auth';
@@ -20,22 +21,6 @@ import {
 } from '../../modules/fullscreen';
 
 import './Header.css';
-
-const smallHeader = (
-  <div>
-    <span>SUA</span>
-    <span id="Write">W</span>
-    <span>247</span>
-  </div>
-);
-
-const largeHeader = (
-  <div>
-    <span>{'Shut Up & '}</span>
-    <span id="Write">Write</span>
-    <span>{' 24/7'}</span>
-  </div>
-);
 
 const mapStateToProps = state => ({
   canFullscreen: canFullscreen(state),
@@ -92,8 +77,12 @@ class Header extends PureComponent {
         <div className="Header-left">{this.renderHeaderLeft()}</div>
         <div className="Header-center">
           <Link to="/" className="Header-text">
-            <Mobile>{smallHeader}</Mobile>
-            <Default>{largeHeader}</Default>
+            <Mobile>
+              <Logo small />
+            </Mobile>
+            <Default>
+              <Logo />
+            </Default>
           </Link>
         </div>
         <div className="Header-right">{this.renderHeaderRight()}</div>
