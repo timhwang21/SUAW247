@@ -16,7 +16,7 @@ class NavBar extends Component {
   get className() {
     const { className } = this.props;
 
-    return classnames('NavBar', className);
+    return classnames('NavBar', 'noselect', className);
   }
 
   render() {

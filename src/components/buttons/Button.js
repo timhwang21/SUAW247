@@ -26,6 +26,7 @@ class Button extends Component {
 
     return classnames({
       Button: true,
+      noselect: true,
       [className]: className,
       'full-width': fullWidth,
       clear,

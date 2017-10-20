@@ -47,3 +47,8 @@ button:disabled {
 .flex {
   display: flex;
 }
+
+.noselect {
+  user-select: none;
+  cursor: default;
+}

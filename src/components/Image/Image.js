@@ -23,6 +23,7 @@ class Image extends Component {
 
     return classnames({
       Image: true,
+      noselect: true,
       [className]: className,
       circle,
       small,

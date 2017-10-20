@@ -88,7 +88,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div id="Header">
+      <div id="Header" className="noselect">
         <div className="Header-left">{this.renderHeaderLeft()}</div>
         <div className="Header-center">
           <Link to="/" className="Header-text">
