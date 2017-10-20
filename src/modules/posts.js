@@ -155,33 +155,19 @@ export default (state = initialState, { type, payload }) => {
         posts: payload,
       };
     case CREATE_POST:
-      return {
-        ...state,
-        loading: state.loading + 1,
-      };
-    case CREATE_POST_SUCCESS:
-      return {
-        ...state,
-        loading: state.loading - 1,
-        error: null,
-      };
-    case CREATE_POST_ERROR:
-      return {
-        ...state,
-        loading: state.loading - 1,
-        error: payload,
-      };
     case UPDATE_POST:
       return {
         ...state,
         loading: state.loading + 1,
       };
+    case CREATE_POST_SUCCESS:
     case UPDATE_POST_SUCCESS:
       return {
         ...state,
         loading: state.loading - 1,
         error: null,
       };
+    case CREATE_POST_ERROR:
     case UPDATE_POST_ERROR:
       return {
         ...state,
