@@ -1,5 +1,6 @@
 .text-cell {
   text-align: left;
-  overflow-x: hidden;
   text-overflow: ellipsis;
+  overflow-x: hidden;
+  padding: 0 10px;
 }

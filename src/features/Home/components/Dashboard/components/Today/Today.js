@@ -7,9 +7,7 @@ import { getProcessedPosts } from '../../../../../../modules/posts';
 
 import Table from '../../../../../../components/Table';
 import { TextCell, ScaleCell } from '../../../../../../components/cells';
-import { Desktop } from '../../../../../../components/icons';
-import { Message, Panel } from '../../../../../../components/layout';
-import { Default } from '../../../../../../components/responsive';
+import { Panel } from '../../../../../../components/layout';
 
 import './Today.css';
 
@@ -17,29 +15,31 @@ const columns = [
   {
     Header: '#',
     accessor: 'session',
-    width: 50,
+    width: 35,
   },
   {
     Header: 'Goal',
     accessor: 'goal',
     Cell: TextCell,
-    width: 360,
+    minWidth: 280,
   },
   {
     Header: 'Accomplishment',
     accessor: 'accomplishment',
     Cell: TextCell,
-    width: 360,
+    minWidth: 280,
   },
   {
     Header: 'Focus',
     accessor: 'focus',
     Cell: ScaleCell,
+    width: 100,
   },
   {
     Header: 'Productivity',
     accessor: 'productivity',
     Cell: ScaleCell,
+    width: 100,
   },
 ];
 
@@ -67,18 +67,8 @@ class Today extends Component {
     );
   }
 
-  renderResponsive = match => {
-    return match ? (
-      <Panel id="Today">{this.renderPosts()}</Panel>
-    ) : (
-      <Message title={<Desktop />}>
-        Please switch to desktop for 'Today' view.
-      </Message>
-    );
-  };
-
   render() {
-    return <Default>{this.renderResponsive}</Default>;
+    return <Panel id="Today">{this.renderPosts()}</Panel>;
   }
 }
 

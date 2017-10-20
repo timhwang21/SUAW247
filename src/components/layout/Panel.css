@@ -2,9 +2,10 @@
   background: #fff;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  max-width: 100%;
+  padding: 20px 40px;
 }
 
 .Panel.with-nav {
-  padding-top: 0;
+  padding: 0;
 }
