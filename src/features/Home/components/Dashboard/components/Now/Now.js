@@ -71,9 +71,9 @@ class Now extends Component {
   }
 
   get title() {
-    const { postCount } = this.props;
+    const { hasActivePost, postCount } = this.props;
 
-    return `Session #${postCount + 1}`;
+    return `Session #${hasActivePost ? postCount : postCount + 1}`;
   }
 
   onSubmit = values => {

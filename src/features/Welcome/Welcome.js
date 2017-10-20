@@ -30,8 +30,8 @@ class Welcome extends Component {
   componentDidMount() {
     const { closeWelcome } = this.props;
 
-    setTimeout(this.showMessage, 100);
-    setTimeout(closeWelcome, 1500);
+    setTimeout(this.showMessage, 500);
+    setTimeout(closeWelcome, 2000);
   }
 
   showMessage = () => this.setState({ showMessage: true });

@@ -120,6 +120,13 @@ export const getActivePost = createSelector(
       return {};
     }
 
+    // When a post is first saved, it takes Firebase a few seconds to apply the
+    // timestamp. Thus, if the most recent post's create_at is null, it means
+    // it was just created and is the currently active post.
+    if (post.created_at == null) {
+      return post;
+    }
+
     const cutoffStart = subMinutes(cutoff, 30);
 
     return isAfter(post.created_at, cutoffStart) ? post : {};
