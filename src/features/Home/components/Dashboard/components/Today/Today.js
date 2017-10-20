@@ -8,8 +8,16 @@ import { getProcessedPosts } from '../../../../../../modules/posts';
 import Table from '../../../../../../components/Table';
 import { TextCell, ScaleCell } from '../../../../../../components/cells';
 import { Panel } from '../../../../../../components/layout';
+import { Link } from '../../../../../../components/links';
 
 import './Today.css';
+
+const noDataText = (
+  <div>
+    <span>{"You haven't added any goals. "}</span>
+    <Link to="/now">Add some now!</Link>
+  </div>
+);
 
 const columns = [
   {
@@ -63,7 +71,12 @@ class Today extends Component {
     const { posts } = this.props;
 
     return (
-      <Table data={posts} columns={columns} defaultSorted={defaultSorted} />
+      <Table
+        data={posts}
+        columns={columns}
+        defaultSorted={defaultSorted}
+        noDataText={noDataText}
+      />
     );
   }
 

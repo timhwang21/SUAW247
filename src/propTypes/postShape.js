@@ -5,7 +5,7 @@ export default shape({
   user_id: string,
   created_at: string,
   updated_at: string,
-  goal: string.isRequired,
+  goal: string,
   accomplishment: string,
   productivity: number,
   focus: number,
