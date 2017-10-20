@@ -1,4 +1,4 @@
-# Shut Up & Write 24/7
+![Banner](./public/screenshots/banner.png)
 
 ### [Live Demo](https://shutupandwrite247.firebaseapp.com/)
 

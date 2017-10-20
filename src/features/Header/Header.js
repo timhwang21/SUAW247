@@ -21,6 +21,22 @@ import {
 
 import './Header.css';
 
+const smallHeader = (
+  <div>
+    <span>SUA</span>
+    <span id="Write">W</span>
+    <span>247</span>
+  </div>
+);
+
+const largeHeader = (
+  <div>
+    <span>{'Shut Up & '}</span>
+    <span id="Write">Write</span>
+    <span>{' 24/7'}</span>
+  </div>
+);
+
 const mapStateToProps = state => ({
   canFullscreen: canFullscreen(state),
   isFullscreen: isFullscreen(state),
@@ -72,15 +88,15 @@ class Header extends Component {
     ];
   }
 
+  renderHeaderText = match => (match ? smallHeader : largeHeader);
+
   render() {
     return (
       <div id="Header">
         <div className="Header-left">{this.renderHeaderLeft()}</div>
         <div className="Header-center">
           <Link to="/" className="Header-text">
-            <Mobile>
-              {match => <div>{match ? 'SUAW247' : 'Shut Up & Write 24/7'}</div>}
-            </Mobile>
+            <Mobile>{this.renderHeaderText}</Mobile>
           </Link>
         </div>
         <div className="Header-right">{this.renderHeaderRight()}</div>

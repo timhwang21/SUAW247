@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Gloss And Bloom';
+  src: local('Gloss And Bloom'), url('./static/fonts/Gloss_And_Bloom.ttf');
+}
+
 html {
   min-width: 300px;
   background: white;
