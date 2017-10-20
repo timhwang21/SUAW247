@@ -3,6 +3,7 @@ import { bool, func } from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm, Form } from 'redux-form';
+import isEmpty from 'lodash/isEmpty';
 
 import { postShape } from '../../../../../../propTypes';
 import { getBreakEnding } from '../../../../../../modules/clock';
@@ -24,29 +25,28 @@ const config = {
   enableReinitialize: true,
 };
 
-const mapStateToProps = state => ({
-  activePost: getActivePost(state),
-  breakEnding: getBreakEnding(state),
-});
+const mapStateToProps = state => {
+  const activePost = getActivePost(state);
+
+  return {
+    hasActivePost: !isEmpty(activePost),
+    breakEnding: getBreakEnding(state),
+    initialValues: activePost,
+  };
+};
 
 const mapDispatchToProps = {
   createPost,
   updatePost,
 };
 
-const mergeProps = ({ activePost }, dispatchProps, ownProps) => ({
-  ...ownProps,
-  ...dispatchProps,
-  activePost,
-  initialValues: activePost,
-});
-
 class Now extends Component {
   static propTypes = {
-    activePost: postShape,
     breakEnding: bool,
     createPost: func,
     handleSubmit: func,
+    hasActivePost: bool,
+    initialValues: postShape,
     pristine: bool,
     submit: func,
     submitSucceeded: bool,
@@ -56,22 +56,26 @@ class Now extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { activePost, breakEnding, valid, submit } = this.props;
+    const { hasActivePost, breakEnding, valid, submit } = this.props;
 
     // If break is about to end, there is no active post, and the current form
     // values are valid, submit the form for the user
-    !breakEnding && nextProps.breakEnding && valid && !activePost && submit();
+    !breakEnding &&
+      nextProps.breakEnding &&
+      valid &&
+      !hasActivePost &&
+      submit();
   }
 
   onSubmit = values => {
-    const { activePost, updatePost, createPost } = this.props;
+    const { hasActivePost, updatePost, createPost } = this.props;
 
-    return activePost ? updatePost(values) : createPost(values);
+    return hasActivePost ? updatePost(values) : createPost(values);
   };
 
   render() {
     const {
-      activePost,
+      hasActivePost,
       handleSubmit,
       pristine,
       submitting,
@@ -107,7 +111,7 @@ class Now extends Component {
             pristine={pristine}
             submitting={submitting}
             submitSucceeded={submitSucceeded}
-            update={!!activePost}
+            update={hasActivePost}
           />
         </Form>
       </Panel>
@@ -116,6 +120,6 @@ class Now extends Component {
 }
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps, mergeProps),
+  connect(mapStateToProps, mapDispatchToProps),
   reduxForm(config),
 )(Now);

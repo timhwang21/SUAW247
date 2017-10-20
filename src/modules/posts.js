@@ -116,12 +116,12 @@ export const getActivePost = createSelector(
   [getLatestPost, getNextCutoff],
   (post, cutoff) => {
     if (!post) {
-      return null;
+      return {};
     }
 
     const cutoffStart = subMinutes(cutoff, 30);
 
-    return isAfter(post.created_at, cutoffStart) ? post : null;
+    return isAfter(post.created_at, cutoffStart) ? post : {};
   },
 );
 
