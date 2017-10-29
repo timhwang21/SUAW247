@@ -12,7 +12,7 @@ export const initializePostGetter = ({ uid }) => dispatch => {
     .collection('posts')
     .where('user_id', '==', uid)
     .orderBy('created_at', 'desc')
-    .limit(50)
+    // .limit(50)
     .onSnapshot(querySnapshot =>
       dispatch(setPosts(fireToArray(querySnapshot))),
     );
