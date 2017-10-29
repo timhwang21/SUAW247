@@ -32,9 +32,20 @@ class SaveButton extends Component {
     }
   }
 
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  }
+
   setSuccess = () =>
-    this.setState({ success: true }, () =>
-      setTimeout(() => this.setState({ success: false }), 5000),
+    this.setState(
+      { success: true },
+      () =>
+        (this.timeout = setTimeout(
+          () => this.setState({ success: false }),
+          5000,
+        )),
     );
 
   handleMouseEnter = e => {
