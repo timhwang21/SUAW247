@@ -100,6 +100,7 @@ class Now extends Component {
             component={Input}
             validate={required}
             large
+            autoFocus
           />
           <Field
             name="accomplishment"
