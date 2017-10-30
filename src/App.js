@@ -14,13 +14,14 @@ import { Route404 } from './components/routes';
 import { setTime } from './modules/clock';
 import { initializeFullscreen } from './modules/fullscreen';
 import { sendNotification } from './modules/notification';
-import { isBodyHidden } from './modules/ui';
+import { isBodyHidden, isWelcomeHidden } from './modules/ui';
 import { initializeAuth } from './modules/user';
 
 import './App.css';
 
 const mapStateToProps = state => ({
   bodyHidden: isBodyHidden(state),
+  welcomeHidden: isWelcomeHidden(state),
 });
 
 const mapDispatchToProps = {
@@ -37,6 +38,7 @@ class App extends Component {
     initializeAuth: func,
     initializeFullscreen: func,
     setTime: func,
+    welcomeHidden: bool,
   };
 
   componentDidMount() {
@@ -44,7 +46,6 @@ class App extends Component {
       initializeAuth,
       initializeFullscreen,
       setTime,
-      sendNotification,
     } = this.props;
 
     // Set up global clock
@@ -55,9 +56,15 @@ class App extends Component {
 
     // Set up fullscreen check
     initializeFullscreen();
+  }
 
-    // Request initial notification permission
-    sendNotification('Shut up and start writing!');
+  componentDidUpdate(prevProps) {
+    const { welcomeHidden, sendNotification } = this.props;
+
+    if (!prevProps.welcomeHidden && welcomeHidden) {
+      // Request initial notification permission
+      sendNotification('Shut up and start writing!');
+    }
   }
 
   componentWillUnmount() {
