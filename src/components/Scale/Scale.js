@@ -46,6 +46,32 @@ class Scale extends Component {
     this.setState({ hoverIdx: null });
   };
 
+  handleFocus = () => {
+    const { count } = this.props;
+    const { hoverIdx } = this.state;
+
+    // Don't highlight if focused via click
+    if (hoverIdx) {
+      return;
+    }
+
+    this.handleMouseEnter(count);
+  };
+
+  handleBlur = this.handleMouseLeave;
+
+  handleKeyPress = event => {
+    const { count } = this.props;
+
+    const maybeNumber = Number(event.key);
+
+    if (Number.isNaN(maybeNumber) || maybeNumber > count) {
+      return;
+    }
+
+    this.handleChange(maybeNumber);
+  };
+
   handleChange = newValue => {
     const { disabled, onChange, value } = this.props;
 
@@ -88,7 +114,14 @@ class Scale extends Component {
     const { value } = this.props;
 
     return (
-      <div className={this.className} title={value}>
+      <div
+        className={this.className}
+        tabIndex={0}
+        title={value}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        onKeyPress={this.handleKeyPress}
+      >
         {this.renderItems()}
       </div>
     );
