@@ -2,7 +2,9 @@
 
 ### [Live Demo](https://shutupandwrite247.firebaseapp.com/)
 
-![Screenshot](./public/screenshots/demo.png)
+![Screenshot](./public/screenshots/demo-1.png)
+
+![Screenshot](./public/screenshots/demo-2.png)
 
 Collaborative pomodoro timer app.
 
@@ -23,7 +25,8 @@ Current features:
 * [ ] Today
     * [x] Grid view of past form data
     * [ ] Expando to fetch comments
-    * [ ] Endpoint: fetch by day, pagination sends a fetch
+    * [x] Endpoint: fetch by day
+    * [ ] Pagination to fetch more days
     * [ ] Mobile: list / card based layout (material design)
 * [ ] Week
     * [ ] Visualizations
@@ -49,6 +52,7 @@ Current features:
 ### UX
 
 * [x] Drag and drop for background image
+* [x] Form controls focusable and keypress controllable (e.g. `<Scale/>`)
 * [ ] Show spinner before user authentication (or all listeners)
 
 ### CRUD
