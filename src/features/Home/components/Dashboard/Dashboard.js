@@ -12,7 +12,7 @@ import { NavLink } from '../../../../components/links';
 
 import Now from './components/Now';
 import Today from './components/Today';
-import Week from './components/Week';
+import History from './components/History';
 
 import './Dashboard.css';
 
@@ -30,13 +30,13 @@ const Dashboard = ({ isBreak }) => (
       <NavLink to="/today" disabled={!isBreak}>
         Today
       </NavLink>
-      <NavLink to="/week" disabled>
-        This Week
+      <NavLink to="/history" disabled>
+        History
       </NavLink>
     </NavBar>
     <AuthenticatedRoute exact path="/(now)?" component={Now} />
     <AuthenticatedRoute path="/today" component={Today} />
-    <AuthenticatedRoute path="/week" component={Week} />
+    <AuthenticatedRoute path="/history" component={History} />
     <Route path="/login" component={LogInPage} />
   </Panel>
 );

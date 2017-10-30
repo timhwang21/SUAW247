@@ -42,11 +42,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const {
-      initializeAuth,
-      initializeFullscreen,
-      setTime,
-    } = this.props;
+    const { initializeAuth, initializeFullscreen, setTime } = this.props;
 
     // Set up global clock
     this.interval = setInterval(setTime, 1000);
@@ -79,7 +75,11 @@ class App extends Component {
         <Welcome />
         <Header />
         <Switch>
-          <Route exact path="/:view(now|today|week|login)?" component={Home} />
+          <Route
+            exact
+            path="/:view(now|today|history|login)?"
+            component={Home}
+          />
           <Route exact path="/404" component={NotFound} />
           <Route404 />
         </Switch>
