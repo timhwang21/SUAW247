@@ -1,18 +1,25 @@
 import { createSelector } from 'reselect';
-import { format, isAfter, subMinutes } from 'date-fns';
+import isAfter from 'date-fns/fp/isAfter';
+import subMinutes from 'date-fns/fp/subMinutes';
+import startOfDay from 'date-fns/fp/startOfDay';
+import endOfDay from 'date-fns/fp/endOfDay';
 
 import { db, timestamp } from '../firebase';
+import { formatDisplay } from '../utils/datetime';
 import { fireToArray } from '../utils/firebase';
 import { getNextCutoff } from './clock';
 import { getUser } from './user';
+
+const now = new Date();
 
 const INITIALIZE_POST_GETTER = 'posts/INITIALIZE_POST_GETTER';
 export const initializePostGetter = ({ uid }) => dispatch => {
   const listener = db
     .collection('posts')
     .where('user_id', '==', uid)
+    .where('created_at', '>=', startOfDay(now))
+    .where('created_at', '<=', endOfDay(now))
     .orderBy('created_at', 'desc')
-    // .limit(50)
     .onSnapshot(querySnapshot =>
       dispatch(setPosts(fireToArray(querySnapshot))),
     );
@@ -127,9 +134,9 @@ export const getActivePost = createSelector(
       return post;
     }
 
-    const cutoffStart = subMinutes(cutoff, 30);
+    const cutoffStart = subMinutes(30)(cutoff);
 
-    return isAfter(post.created_at, cutoffStart) ? post : {};
+    return isAfter(cutoffStart)(post.created_at) ? post : {};
   },
 );
 
@@ -140,8 +147,8 @@ export const getProcessedPosts = createSelector([getPosts], posts =>
   posts.map((post, idx) => ({
     ...post,
     session: posts.length - idx,
-    created_at: format(post.created_at, 'hh:mm:ss'),
-    updated_at: format(post.updated_at, 'hh:mm:ss'),
+    created_at: formatDisplay(post.created_at),
+    updated_at: formatDisplay(post.updated_at),
   })),
 );
 

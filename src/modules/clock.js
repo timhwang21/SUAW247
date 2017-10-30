@@ -1,11 +1,11 @@
-import {
-  addSeconds,
-  subMinutes,
-  differenceInSeconds,
-  endOfHour,
-  isBefore,
-  format,
-} from 'date-fns';
+import compose from 'lodash/fp/compose';
+import addSeconds from 'date-fns/fp/addSeconds';
+import subMinutes from 'date-fns/fp/subMinutes';
+import differenceInSeconds from 'date-fns/fp/differenceInSeconds';
+import endOfHour from 'date-fns/fp/endOfHour';
+import isBefore from 'date-fns/fp/isBefore';
+
+import { formatDisplay } from '../utils/datetime';
 
 import work_start_mp3 from '../static/audio/work_start.mp3';
 import break_start_mp3 from '../static/audio/break_start.mp3';
@@ -21,16 +21,16 @@ function calcTime(prevTime = {}) {
   // Lazily calculate nextCutoff
   let nextCutoff;
 
-  if (prevTime.nextCutoff && isBefore(now, prevTime.nextCutoff)) {
+  if (prevTime.nextCutoff && isBefore(prevTime.nextCutoff)(now)) {
     nextCutoff = prevTime.nextCutoff;
   } else {
-    const nextHour = addSeconds(endOfHour(now), 1);
-    const nextHalfHour = subMinutes(nextHour, 30);
-    const isFirstHalfHour = isBefore(now, nextHalfHour);
+    const nextHour = compose(addSeconds(1), endOfHour)(now);
+    const nextHalfHour = subMinutes(30)(nextHour);
+    const isFirstHalfHour = isBefore(nextHalfHour)(now);
     nextCutoff = isFirstHalfHour ? nextHalfHour : nextHour;
   }
 
-  const totalSeconds = differenceInSeconds(nextCutoff, now);
+  const totalSeconds = differenceInSeconds(now)(nextCutoff);
 
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
@@ -71,8 +71,7 @@ export const setTime = () => (dispatch, getState) => {
   }
 };
 
-export const getCurrentTime = state =>
-  format(state.clock.currentTime, 'hh:mm:ss A');
+export const getCurrentTime = state => formatDisplay(state.clock.currentTime);
 export const getTime = state => state.clock;
 export const getNextCutoff = state => state.clock.nextCutoff;
 export const getIsBreak = state => state.clock.minutes < 5;
