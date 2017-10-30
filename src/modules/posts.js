@@ -13,13 +13,15 @@ import { getUser } from './user';
 const now = new Date();
 
 const INITIALIZE_POST_GETTER = 'posts/INITIALIZE_POST_GETTER';
+
+// Note: Unexpected startAt and endAt arguments because of orderBy 'desc'
 export const initializePostGetter = ({ uid }) => dispatch => {
   const listener = db
     .collection('posts')
     .where('user_id', '==', uid)
-    .where('created_at', '>=', startOfDay(now))
-    .where('created_at', '<=', endOfDay(now))
     .orderBy('created_at', 'desc')
+    .startAt(endOfDay(now))
+    .endAt(startOfDay(now))
     .onSnapshot(querySnapshot =>
       dispatch(setPosts(fireToArray(querySnapshot))),
     );
