@@ -24,7 +24,6 @@ const mapDispatchToProps = {
 
 class Home extends Component {
   static propTypes = {
-    match: object,
     bodyHidden: bool,
     toggleBody: func,
   };
