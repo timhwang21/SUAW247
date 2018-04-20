@@ -60,16 +60,34 @@ class Scale extends Component {
 
   handleBlur = this.handleMouseLeave;
 
-  handleKeyPress = event => {
-    const { count } = this.props;
-
-    const maybeNumber = Number(event.key);
-
-    if (Number.isNaN(maybeNumber) || maybeNumber > count) {
-      return;
+  handleKeyDown = event => {
+    if (!isNaN(event.key)) {
+      return this.handleNumber(event);
     }
 
-    this.handleChange(maybeNumber);
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      return this.handleLeftRight(event);
+    }
+  };
+
+  handleNumber = event => {
+    const { count } = this.props;
+
+    const number = Number(event.key);
+
+    if (number <= count) {
+      this.handleChange(number);
+    }
+  };
+
+  handleLeftRight = event => {
+    const { count, value } = this.props;
+
+    if (event.key === 'ArrowLeft' && value > 0) {
+      this.handleChange(value - 1);
+    } else if (event.key === 'ArrowRight' && value < count) {
+      this.handleChange(value + 1);
+    }
   };
 
   handleChange = newValue => {
@@ -120,7 +138,7 @@ class Scale extends Component {
         title={value}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
-        onKeyPress={this.handleKeyPress}
+        onKeyDown={this.handleKeyDown}
       >
         {this.renderItems()}
       </div>
