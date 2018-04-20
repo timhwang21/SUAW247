@@ -113,9 +113,16 @@ class Now extends Component {
               name="productivity"
               label="Productivity"
               component={Scale}
+              parse={Number}
               small
             />
-            <Field name="focus" label="Focus" component={Scale} small />
+            <Field
+              name="focus"
+              label="Focus"
+              component={Scale}
+              small
+              parse={Number}
+            />
           </Row>
           <SaveButton
             pristine={pristine}
