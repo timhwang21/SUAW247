@@ -138,7 +138,7 @@ export const getActivePost = createSelector(
 
     const cutoffStart = subMinutes(30)(cutoff);
 
-    return isAfter(cutoffStart)(post.created_at) ? post : {};
+    return isAfter(cutoffStart)(post.created_at.toDate()) ? post : {};
   },
 );
 
@@ -149,8 +149,8 @@ export const getProcessedPosts = createSelector([getPosts], posts =>
   posts.map((post, idx) => ({
     ...post,
     session: posts.length - idx,
-    created_at: formatDisplay(post.created_at),
-    updated_at: formatDisplay(post.updated_at),
+    created_at: formatDisplay(post.created_at.toDate()),
+    updated_at: formatDisplay(post.updated_at.toDate()),
   })),
 );
 

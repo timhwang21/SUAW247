@@ -6,7 +6,6 @@ export default firebase;
 export { default as firebaseApp } from './firebaseApp';
 
 export { default as db } from './db';
-export { default as ui } from './ui';
 
 export const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 

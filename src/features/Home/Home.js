@@ -59,7 +59,7 @@ class Home extends Component {
             <Chevron up={bodyHidden} down={!bodyHidden} />
           </Button>
         </div>
-        <div className={classnames('Home-body', { 'body-hidden': bodyHidden })}>
+        <div className="Home-body">
           <Dashboard />
           <Social />
         </div>

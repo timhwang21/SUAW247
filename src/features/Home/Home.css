@@ -1,4 +1,6 @@
 #Home {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
@@ -9,6 +11,7 @@
 .Home-header {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   height: 150px;
   align-items: center;
   transition-duration: 0.5s;
@@ -23,6 +26,11 @@
 .Home-body {
   background: #e0e0e0;
   display: flex;
+  flex-grow: 1;
+}
+
+#Home.body-hidden .Home-body {
+  display: none;
 }
 
 .Home-toggle {

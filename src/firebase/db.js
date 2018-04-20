@@ -1,4 +1,10 @@
 import firebase from 'firebase';
 require('firebase/firestore');
 
-export default firebase.firestore();
+const firestore = firebase.firestore();
+
+firestore.settings({
+  timestampsInSnapshots: true,
+});
+
+export default firestore;

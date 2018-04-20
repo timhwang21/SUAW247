@@ -4,4 +4,5 @@
 
 #Dashboard-NavBar {
   background: #f6f6f6;
+  flex-shrink: 0;
 }
