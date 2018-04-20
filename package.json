@@ -18,7 +18,7 @@
     "react-responsive": "^2.0.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
-    "react-scripts": "1.0.13",
+    "react-scripts": "1.1.4",
     "react-table": "^6.6.0",
     "redux": "^3.7.2",
     "redux-form": "^7.1.0",
@@ -40,11 +40,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "yarn build && firebase deploy",
-    "prettier":
-      "prettier --single-quote --trailing-comma all --no-config --write \"src/**/*.{js,json,css}\"",
+    "prettier": "prettier --single-quote --trailing-comma all --no-config --write \"src/**/*.{js,json,css}\"",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css}": ["yarn prettier", "git add"]
+    "*.{js,json,css}": [
+      "yarn prettier",
+      "git add"
+    ]
   }
 }
