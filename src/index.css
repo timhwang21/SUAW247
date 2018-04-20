@@ -23,13 +23,12 @@ body::-webkit-scrollbar {
 input {
   /* temporary */
   font-family: 'Avenir Next', Futura, Helvetica, Arial, sans-serif;
-  background: #eee;
   border: 2px solid #eee;
   transition-duration: 0.25s;
 }
 
 input:focus {
-  background: #fff;
+  border-color: #66c0f6;
 }
 
 *:focus {
