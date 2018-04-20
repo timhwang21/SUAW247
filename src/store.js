@@ -9,6 +9,13 @@ import reducer from './modules';
 
 export const history = createHistory();
 
-const middleware = applyMiddleware(routerMiddleware(history), thunk, logger);
+let middlewares = [routerMiddleware(history), thunk];
+
+if (process.env.NODE_ENV === 'development') {
+  const devMiddlewares = [logger];
+  middlewares = middlewares.concat(devMiddlewares);
+}
+
+const middleware = applyMiddleware(...middlewares);
 
 export default createStore(reducer, composeWithDevTools(middleware));
