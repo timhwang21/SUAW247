@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object, bool, func } from 'prop-types';
+import { bool, func } from 'prop-types';
 import classnames from 'classnames';
 
 import Dropzone from '../../components/Dropzone';
